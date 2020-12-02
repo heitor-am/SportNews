@@ -31,6 +31,8 @@
                 </header>
 
                 <!-- CONTEÚDO -->
+                <?php include "api.php";?>
+                <!-- Conexão com API -->
                 <div id="conteudo"></div>
             </div>
         </div>
@@ -47,17 +49,31 @@
                         <h2>Menu</h2>
                     </header>
                     <ul>
-                        <li><a id="1" href="#" >Página inicial</a></li>
-                        <li><a id="3" href="#" >Futebol</a></li>
-                        <li><a href="#" >NBA</a></li>
-                        <li><a href="#" >eSports</a></li>
-                        <li><a href="#" >Vôlei</a></li>
+                        <li><a id="1" href="#">Página inicial</a></li>
+                        <li><a id="3" href="#">Futebol</a></li>
+                        <li><a href="#">NBA</a></li>
+                        <li><a href="#">eSports</a></li>
+                        <li><a href="#">Vôlei</a></li>
                         <li><span class="opener">Tabela do Brasileirão</span>
                             <ul>
-                                <li><a id="2"  href="#" style="cursor: pointer;">Série A</a></li>
-                                <li><a  href="#" style="cursor: pointer;">Série B</a></li>
-                                <li><a  href="#" style="cursor: pointer;">Série C</a></li>
-                                <li><a  href="#" style="cursor: pointer;">Série D</a></li>
+                                <li><a id="2" name="serie-a" href="#" style="cursor: pointer;">Série A</a></li>
+                                <li><a id="2" name="serie-b" href="#" style="cursor: pointer;">Série B</a></li>
+                                <li><a id="2" name="serie-c" href="#" style="cursor: pointer;">Série C</a></li>
+                                <li><a id="2" name="serie-d" href="#" style="cursor: pointer;">Série D</a></li>
+
+                                <!-- <script>
+                                    $('#2').click(function() {
+                                        var serie = $("#2").attr("name");
+
+                                        $.ajax({
+                                            type: 'POST',
+                                            url: 'api.php',
+                                            data: {
+                                                'serie': serie
+                                            }
+                                        });
+                                    });
+                                </script> -->
                             </ul>
                         </li>
                     </ul>
@@ -144,7 +160,7 @@
                 $sidebar.addClass('inactive');
             });
             breakpoints.on('>large', function() {
-                $sidebar.removeClass('inactive');
+                //$sidebar.removeClass('inactive');
             });
             if (browser.os == 'android' && browser.name == 'chrome') $('<style>#sidebar .inner::-webkit-scrollbar { display: none; }</style>').appendTo($head);
             $('<a href="#sidebar" class="toggle">Toggle</a>').appendTo($sidebar).on('click', function(event) {

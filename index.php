@@ -7,6 +7,7 @@
     <script src="js/template/breakpoints.min.js"></script>
     <script src="js/template/util.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="shortcut icon" href="logo/favicon.png">
     <title>SportNews</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -20,18 +21,18 @@
         <!-- TOPO -->
         <div id="main">
             <div class="inner">
-                <header id="header"><a href="index.html" class="logo"><strong>Artigos</strong> por Douglas Gomes</a>
+                <header id="header"><a href="./" class="logo" style="padding-left:20px;"><img src="logo/logo.png" alt="logo" style="width:120px;"></a>
                     <ul class="icons">
                         <li><a class="icon brands fa-twitter" style="cursor: pointer;"><span class="label">Twitter</span></a></li>
                         <li><a class="icon brands fa-facebook-f" style="cursor: pointer;"><span class="label">Facebook</span></a></li>
-                        <li><a class="icon brands fa-snapchat-ghost" style="cursor: pointer;"><span class="label">Snapchat</span></a></li>
                         <li><a class="icon brands fa-instagram" style="cursor: pointer;"><span class="label">Instagram</span></a></li>
-                        <li><a class="icon brands fa-medium-m" style="cursor: pointer;"><span class="label">Medium</span></a></li>
+                        <li><a class="icon brands fa-github" style="cursor: pointer;" href="https://github.com/heitor-am/SportNews" target="_blank"><span class="label">GitHub</span></a></li>
+                        <li><a class="icon brands fa-bitcoin" style="cursor: pointer;" href="https://tippin.me/@TobiasForge_" target="_blank"><span class="label">Apoie</span></a></li>
                     </ul>
                 </header>
 
                 <!-- CONTEÚDO -->
-                <?php include "api.php";?>
+                <?php include "api.php"; ?>
                 <!-- Conexão com API -->
                 <div id="conteudo"></div>
             </div>

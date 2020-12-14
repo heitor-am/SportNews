@@ -4,14 +4,10 @@
 
 $curl = curl_init();
 
-// if (isset($_POST["serie"])) {
-// 	$serie = $_POST['serie'];
-
-// 	if ($serie == 'serie-a') $code = 1396;
-// 	if ($serie == 'serie-b') $code = 1397;
-// 	if ($serie == 'serie-c') $code = 1472;
-// 	if ($serie == 'serie-d') $code = 1476;
-// }
+// serie-a = 1396
+// serie-b = 1397
+// serie-c = 1472
+// serie-d = 1476
 
 curl_setopt_array($curl, [
 	CURLOPT_URL => "https://v2.api-football.com/leagueTable/1396",
@@ -68,13 +64,13 @@ function data_processing()
 }
 
 // CONEXÃO COM BD
+require_once 'db_connect.php';
 
 $info = data_processing();
 
-$connect = mysqli_connect("localhost", "admin", "R00t_P4sSw0Rd", "sportnews");
 $query = "UPDATE pages SET content = '$info' WHERE page_id = 2";
 $result = mysqli_query($connect, $query);
-if (!$result) {
-	printf("Error: %s\n", mysqli_error($connect));
+if (!$result and !mysqli_connect_error()) {
+	echo "Error: " . $query . "<br>" . mysqli_error($connect);
 }
- mysqli_close($connect);
+mysqli_close($connect);

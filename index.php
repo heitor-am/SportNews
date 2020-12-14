@@ -7,11 +7,111 @@
     <script src="js/template/breakpoints.min.js"></script>
     <script src="js/template/util.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <link rel="shortcut icon" href="logo/favicon.png">
+    <link rel="shortcut icon" href="img/logo/favicon.png">
     <title>SportNews</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/template.css">
+
+    <style>
+        /* Centralize a imagem */
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+            position: relative;
+        }
+
+        img.avatar {
+            width: 40%;
+            border-radius: 50%;
+        }
+
+        /* Botão Fechar (x) */
+        .close {
+            color: #7f888f;
+            position: absolute;
+            right: 25px;
+            top: 0;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .container input[type=text],
+        .container input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        label[for=uname],
+        label[for=psw] {
+            font-weight: bolder;
+            margin-bottom: 0px;
+            margin-top: 5px;
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+        /* Modal (background) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 15% auto;
+            border: 1px solid #888;
+            width: 40%;
+        }
+
+        @media screen and (max-width: 768px) {
+            .modal-content {
+                width: 80%;
+            }
+        }
+
+        .modal-content,
+        .container {
+            border-radius: 5px;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #6cc5af;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body class="">
@@ -21,7 +121,7 @@
         <!-- TOPO -->
         <div id="main">
             <div class="inner">
-                <header id="header"><a href="./" class="logo" style="padding-left:20px;"><img src="logo/logo.png" alt="logo" style="width:120px;"></a>
+                <header id="header" style="padding-top:50px;"><a href="./" class="logo" style="padding-left:20px;"><img src="img/logo/logo.png" alt="logo" style="width:6rem;"></a>
                     <ul class="icons">
                         <li><a class="icon brands fa-twitter" style="cursor: pointer;"><span class="label">Twitter</span></a></li>
                         <li><a class="icon brands fa-facebook-f" style="cursor: pointer;"><span class="label">Facebook</span></a></li>
@@ -32,8 +132,8 @@
                 </header>
 
                 <!-- CONTEÚDO -->
-                <?php include "api.php"; ?>
-                <!-- Conexão com API -->
+                <?php include "php/api.php"; ?> <!-- Conexão com API -->
+                
                 <div id="conteudo"></div>
             </div>
         </div>
@@ -68,7 +168,7 @@
 
                                         $.ajax({
                                             type: 'POST',
-                                            url: 'api.php',
+                                            url: 'php/api.php',
                                             data: {
                                                 'serie': serie
                                             }
@@ -106,11 +206,54 @@
                 </section>
                 <section>
                     <header class="major">
+                        <h2>Login</h2>
+                    </header>
+
+                    <!-- Botão para abrir o formulário de login -->
+                    <button onclick="document.getElementById('modal-login').style.display='block'">Acessar como redator</button>
+
+                    <!-- Modal -->
+                    <div id="modal-login" class="modal">
+                        <!-- Conteúdo do modal -->
+                        <form class="modal-content" action="php/redator/login.php" method="POST">
+                            <div class="imgcontainer">
+                                <span onclick="document.getElementById('modal-login').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                <img src="img/avatar.jpeg" alt="Avatar" class="avatar">
+                            </div>
+                            <div class="container">
+                                <label for="uname">Nome do usuário</label>
+                                <input type="text" placeholder="Digite o nome de usuário" name="uname" required>
+
+                                <label for="psw">Senha</label>
+                                <input type="password" placeholder="Digite a senha" name="psw" required>
+                            </div>
+
+                            <div class="container" style="background-color:#f1f1f1">
+                                <button type="submit" name="btn-login">Login</button>
+                                <span class="psw">Esqueceu a <a href="#">senha?</a></span>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <script>
+                        // Pegar o modal
+                        var modal = document.getElementById('modal-login');
+
+                        // Quando o usuário clicar em qualquer lugar fora do modal, feche-o
+                        window.onclick = function(event) {
+                            if (event.target == modal) {
+                                modal.style.display = "none";
+                            }
+                        }
+                    </script>
+                </section>
+                <section>
+                    <header class="major">
                         <h2>Contato</h2>
                     </header>
                     <ul class="contact">
-                        <li class="icon solid fa-envelope"><a style="cursor: pointer;">information@untitled.tld</a></li>
-                        <li class="icon solid fa-phone">(000) 000-0000</li>
+                        <li class="icon solid fa-envelope"><a style="cursor: pointer;">contato.sportnews@outlook.com</a></li>
+                        <li class="icon solid fa-phone">(86) 98816-9381</li>
                     </ul>
                 </section>
                 <footer id="footer">
@@ -236,7 +379,7 @@
     $(document).ready(function() {
         function load_page(id) {
             $.ajax({
-                url: "fetch.php",
+                url: "php/fetch.php",
                 method: "POST",
                 data: {
                     id: id

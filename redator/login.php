@@ -1,5 +1,5 @@
 <?php
-require_once '../db_connect.php';
+require_once '../db/db_connect.php';
 
 session_start();
 
@@ -33,6 +33,16 @@ if (isset($_POST['btn-login'])) {
 
 if (!empty($errors)) {
     foreach ($errors as $error) {
-        echo "<script> alert('" . $error . "'); </script>";
+        echo "<script>" .
+        'setTimeout("javascript:fechar();",10);' .
+        'alert("' . $error . '");' .
+        '</script>';
     }
 }
+?>
+
+<script>
+      function fechar(){
+            window.location.href = "/SportNews"
+      }
+</script>

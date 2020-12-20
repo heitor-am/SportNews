@@ -106,10 +106,6 @@
                 display: block;
                 float: none;
             }
-
-            .cancelbtn {
-                width: 100%;
-            }
         }
     </style>
 </head>
@@ -123,18 +119,109 @@
             <div class="inner">
                 <header id="header" style="padding-top:50px;"><a href="./" class="logo" style="padding-left:20px;"><img src="img/logo/logo.png" alt="logo" style="width:6rem;"></a>
                     <ul class="icons">
-                        <li><a class="icon brands fa-twitter" style="cursor: pointer;"><span class="label">Twitter</span></a></li>
+                        <li><a class="icon brands fa-twitter" style="cursor: pointer;" href="https://twitter.com/br_sportnews"><span class="label">Twitter</span></a></li>
                         <li><a class="icon brands fa-facebook-f" style="cursor: pointer;"><span class="label">Facebook</span></a></li>
                         <li><a class="icon brands fa-instagram" style="cursor: pointer;"><span class="label">Instagram</span></a></li>
                         <li><a class="icon brands fa-github" style="cursor: pointer;" href="https://github.com/heitor-am/SportNews" target="_blank"><span class="label">GitHub</span></a></li>
-                        <li><a class="icon brands fa-bitcoin" style="cursor: pointer;" href="https://tippin.me/@TobiasForge_" target="_blank"><span class="label">Apoie</span></a></li>
+                        <li><a class="icon brands fa-bitcoin" style="cursor: pointer;" href="https://tippin.me/@br_sportnews" target="_blank"><span class="label">Apoie</span></a></li>
                     </ul>
                 </header>
 
                 <!-- CONTEÚDO -->
-                <?php include "php/api.php"; ?> <!-- Conexão com API -->
-                
-                <div id="conteudo"></div>
+
+                <section id="banner">
+                    <div class="content">
+                        <header>
+                            <h1>Gabriel Jesus assume importância na Seleção</h1>
+                            <p>02/11/2020 14h02</p>
+                        </header>
+                        <p>Atacante destaca que está na seleção desde 2016 e comenta ausência do craque do PSG. Ele revelou que atuou por quase um tempo inteiro com lesãograu 3. Ainda marcou gol nos acréscimos</p>
+                        <ul class="actions">
+                            <li><a class="button big" style="cursor: pointer;" href="articles/article.php">Sobre</a></li>
+                        </ul>
+                    </div><span class="image object"><img src="img/img1.jpg" alt=""></span>
+                </section>
+                <section>
+                    <header class="major">
+                        <h2>Por que nos acompanhar?</h2>
+                    </header>
+                    <div class="features">
+                        <article><span class="icon fas fa-futbol"></span>
+                            <div class="content">
+                                <h3>Fique por dentro</h3>
+                                <p>Acompanhe as últimas notícias sobre o futebol nacional e internacional.</p>
+                            </div>
+                        </article>
+                        <article><span class="icon solid fa-gamepad"></span>
+                            <div class="content">
+                                <h3>Esportes eletrônicos</h3>
+                                <p>Entre no mundo dos esportes eletrônicos e acompanhe os campeonatos do seu jogo favorito.</p>
+                            </div>
+                        </article>
+                        <article><span class="icon solid fa-table"></span>
+                            <div class="content">
+                                <h3>Cobertura de Campeonatos</h3>
+                                <p>Saiba a qualquer hora como anda o seu time favorito em campeonatos nacionais e internacionais.</p>
+                            </div>
+                        </article>
+                        <article><span class="icon solid fa-basketball-ball"></span>
+                            <div class="content">
+                                <h3>Conteúdo variado</h3>
+                                <p>Leia artigos exclusivos sobre os mais variados tipos de esportes.</p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+                <section>
+                    <header class="major">
+                        <h2>Artigos</h2>
+                    </header>
+                    <div class="posts">
+                        <article><a class="image" style="cursor: pointer;"><img src="img/img2.jpg" alt=""></a>
+                            <h3>Orçamento do Inter prevê semi da Copa do Brasil e quartas da Libertadores</h3>
+                            <p>02/11/2020 13h59</p>
+                            <ul class="actions">
+                                <li><a class="button" style="cursor: pointer;">Sobre</a></li>
+                            </ul>
+                        </article>
+                        <article><a class="image" style="cursor: pointer;"><img src="img/img3.jpg" alt=""></a>
+                            <h3>Alonso coloca Russell como promessa para futuro: "Surpreende a cada final de semana"</h3>
+                            <p>02/11/2020 13h51</p>
+                            <ul class="actions">
+                                <li><a class="button" style="cursor: pointer;">Sobre</a></li>
+                            </ul>
+                        </article>
+                        <article><a class="image" style="cursor: pointer;"><img src="img/img4.jpg" alt=""></a>
+                            <h3>Felipao elogia Pottker e dá boas-vindas ao atacante: "ajudará muito"</h3>
+                            <p>02/11/2020 11h21</p>
+                            <ul class="actions">
+                                <li><a class="button" style="cursor: pointer;">Sobre</a></li>
+                            </ul>
+                        </article>
+                        <article><a class="image" style="cursor: pointer;"><img src="img/img5.jpg" alt=""></a>
+                            <h3>Entrevista de Dome após goleada piora o clima para ele e desagrada Flamengo</h3>
+                            <p>02/11/2020 10h42</p>
+                            <ul class="actions">
+                                <li><a class="button" style="cursor: pointer;">Sobre</a></li>
+                            </ul>
+                        </article>
+                        <article><a class="image" style="cursor: pointer;"><img src="img/img6.jpg" alt=""></a>
+                            <h3>Cristiano Ronaldo evita falar de possível quebra de protocolo da covid-19 e exalta retorno</h3>
+                            <p>02/11/2020 08h30</p>
+                            <ul class="actions">
+                                <li><a class="button" style="cursor: pointer;">Sobre</a></li>
+                            </ul>
+                        </article>
+                        <article><a class="image" style="cursor: pointer;"><img src="img/img7.jpg" alt=""></a>
+                            <h3>Jon Jones divulga vídeo em que persegue ladrão com espingarda</h3>
+                            <p>02/11/2020 07h02</p>
+                            <ul class="actions">
+                                <li><a class="button" style="cursor: pointer;">Sobre</a></li>
+                            </ul>
+                        </article>
+                    </div>
+                </section>
+
             </div>
         </div>
 
@@ -150,31 +237,15 @@
                         <h2>Menu</h2>
                     </header>
                     <ul>
-                        <li><a id="1" href="#">Página inicial</a></li>
-                        <li><a id="3" href="#">Futebol</a></li>
-                        <li><a href="#">NBA</a></li>
-                        <li><a href="#">eSports</a></li>
-                        <li><a href="#">Vôlei</a></li>
+                        <li><a href="./">Página inicial</a></li>
+                        <li><a href="articles/?cat=futebol">Futebol</a></li>
+                        <li><a href="articles/?cat=nba">NBA</a></li>
+                        <li><a href="articles/?cat=esports">eSports</a></li>
+                        <li><a href="articles/?cat=volei">Vôlei</a></li>
                         <li><span class="opener">Tabela do Brasileirão</span>
                             <ul>
-                                <li><a id="2" name="serie-a" href="#" style="cursor: pointer;">Série A</a></li>
-                                <li><a id="2" name="serie-b" href="#" style="cursor: pointer;">Série B</a></li>
-                                <li><a id="2" name="serie-c" href="#" style="cursor: pointer;">Série C</a></li>
-                                <li><a id="2" name="serie-d" href="#" style="cursor: pointer;">Série D</a></li>
-
-                                <!-- <script>
-                                    $('#2').click(function() {
-                                        var serie = $("#2").attr("name");
-
-                                        $.ajax({
-                                            type: 'POST',
-                                            url: 'php/api.php',
-                                            data: {
-                                                'serie': serie
-                                            }
-                                        });
-                                    });
-                                </script> -->
+                                <li><a name="serie-a" href="tables/?serie=a" style="cursor: pointer;">Série A</a></li>
+                                <li><a name="serie-b" href="tables/?serie=b" style="cursor: pointer;">Série B</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -215,7 +286,7 @@
                     <!-- Modal -->
                     <div id="modal-login" class="modal">
                         <!-- Conteúdo do modal -->
-                        <form class="modal-content" action="php/redator/login.php" method="POST">
+                        <form class="modal-content" action="./redator/login.php" method="POST">
                             <div class="imgcontainer">
                                 <span onclick="document.getElementById('modal-login').style.display='none'" class="close" title="Close Modal">&times;</span>
                                 <img src="img/avatar.jpeg" alt="Avatar" class="avatar">
@@ -234,7 +305,7 @@
                             </div>
                         </form>
                     </div>
-                    
+
                     <script>
                         // Pegar o modal
                         var modal = document.getElementById('modal-login');

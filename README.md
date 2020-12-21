@@ -1,23 +1,4 @@
-![](RackMultipart20201221-4-g7jbyt_html_b61c799fd5b089a4.png)
-
-Instituto Federal do Piauí
-
-Campus: Teresina - Central
-
-Disciplina: Programação WEB
-
-Professor: Jeziéric
-
 # RELATÓRIO DE PROJETO DE CONCLUSÃO DE CURSO
-
-Equipe: Douglas Gomes
-
-Heitor Andrade
-
-Pedro Manoel
- Pedro Swan
-
-Teresina, 7 de Janeiro de 2021
 
 Nome do projeto: Sport News
 

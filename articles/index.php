@@ -9,6 +9,8 @@ $result = mysqli_query($connect, $query);
 while ($row = mysqli_fetch_assoc($result)) {
     $array[] = $row;
 }
+
+mysqli_close($connect);
 ?>
 
 <section>
@@ -18,12 +20,13 @@ while ($row = mysqli_fetch_assoc($result)) {
     <div class="posts">
         <?php
         foreach ($array as $a) {
-            if ($a['category'] == $_GET['cat']) {
+            if ($a['category'] == strtolower($_GET['cat'])) {
                 echo "<article><a class='image' style='cursor: pointer;'><img src=" . $a['main_image'] . " alt=''></a>" .
                     "<h3>" . $a['title'] . "</h3>" .
-                    "<p>" . $a['time'] . "</p>" .
+                    "<p><time>" . $a['time'] . "</time></p>" .
                     "<ul class='actions'>" .
-                    "<li><a class='button' style='cursor: pointer;'>Sobre</a></li></ul></article>";
+                    "<li><a id='". $a['id'] ."' class='button' " . 
+                    "href='./article.php?id=" . $a['id'] . "'style='cursor: pointer;'>Sobre</a></li></ul></article>";
             }
         }
         ?>
@@ -32,3 +35,4 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 <?php
 include '../config/footer.php';
+?>

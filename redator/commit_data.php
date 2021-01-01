@@ -4,7 +4,7 @@ require_once '../db/db_connect.php';
 session_start();
 
 $content = $_SESSION['content'];
-$now = date("Y-m-d H:i:s");
+$now = date("d/m/Y H:i");
 
 $query = "INSERT INTO articles (category, editor, time, main_image, title, subtitle, content) VALUES (" .
       "'" . $content["category"] . "'," .

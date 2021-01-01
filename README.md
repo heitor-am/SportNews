@@ -1,2 +1,1 @@
-# SportNews
-Projeto de Portal de Notícias sobre esportes
+# PROJETO DE CONCLUSÃO DE CURSO

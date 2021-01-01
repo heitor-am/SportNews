@@ -22,7 +22,7 @@ if (isset($_POST['btn-login'])) {
             mysqli_close($connect);
             $_SESSION['logado'] = true;
             $_SESSION['user_id'] = $redator['id'];
-            header('Location: redator.php');
+            header('Location: ./');
         } else {
             $errors[] = "Senha incorreta";
         }

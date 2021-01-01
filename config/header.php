@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 
 <head>
-    <script src="../js/template/jquery.min.js"></script>
-    <script src="../js/template/browser.min.js"></script>
-    <script src="../js/template/breakpoints.min.js"></script>
-    <script src="../js/template/util.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <link rel="shortcut icon" href="../img/logo/favicon.png">
-    <title>SportNews</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="../css/template.css">
+    <title>SportNews</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://localhost/SportNews/assets/css/main_modified.css" />
+    <link rel="shortcut icon" href="http://localhost/SportNews/img/logo/favicon.png">
 
     <style>
         /* Centralize a imagem */
@@ -110,14 +107,14 @@
     </style>
 </head>
 
-<body class="">
+<body class="is-preload">
     <!-- PÁGINA -->
     <div id="wrapper">
 
         <!-- TOPO -->
         <div id="main">
             <div class="inner">
-                <header id="header" style="padding-top:50px;"><a href="./" class="logo" style="padding-left:20px;"><img src="../img/logo/logo.png" alt="logo" style="width:6rem;"></a>
+                <header id="header" style="padding-top:50px;"><a href="http://localhost/SportNews/" class="logo" style="padding-left:20px;"><img src="http://localhost/SportNews/img/logo/logo.png" alt="logo" style="width:6rem;"></a>
                     <ul class="icons">
                         <li><a class="icon brands fa-twitter" style="cursor: pointer;" href="https://twitter.com/br_sportnews"><span class="label">Twitter</span></a></li>
                         <li><a class="icon brands fa-facebook-f" style="cursor: pointer;"><span class="label">Facebook</span></a></li>

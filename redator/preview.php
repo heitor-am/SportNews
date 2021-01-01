@@ -21,7 +21,7 @@ $time = date("d/m/Y H:i");;
     <title>Redator | Preview</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="../css/template.css">
+    <link rel="stylesheet" href="http://localhost/SportNews/assets/css/main_modified.css">
 
     <style>
         body {
@@ -64,7 +64,7 @@ $time = date("d/m/Y H:i");;
                         <?php echo $_POST["content"]; ?>
                     </section>
                 </div>
-                <a href="redator.php">Voltar</a>
+                <a href="./">Voltar</a>
                 <input type="submit" value="Enviar">
             </form>
         </div>

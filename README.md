@@ -38,10 +38,10 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [PHP](https://www.php.net/)
 - [Sass](https://sass-lang.com/)
 - [JQuery](https://jquery.com/)
-
+- [Git](https://git-scm.com/)
 
 <br>
-<h2 id="homepage">Homepage</h2>
+<h2 id="homepage">✅ Homepage</h2>
 
 <p>No arquivo index.php, onde é tratado a homepage do site, logo no início do código, é feita uma requisição ao banco de dados.</p>
 
@@ -86,7 +86,7 @@ mysqli_close($connect);
 <p>E isso acontece com todos os demais artigos que aparecem na homepage.</p>
 
 <br>
-<h2 id="artigos">Artigos</h2>
+<h2 id="artigos">✅ Artigos</h2>
 
 <p>Para que o redator possa criar um novo artigo, ele primeiro precisar logar no sistema. A opção para login fica na sidebar.</p>
 
@@ -273,7 +273,7 @@ if (mysqli_query($connect, $query)) {
 <p align="center"><img src="/img/to_github/ARTIGOS-11.png"></p>
 
 <br>
-<h2 id="artigo">Página do artigo</h2>
+<h2 id="artigo">✅ Página do artigo</h2>
 
 <p>Cada “Spoiler” de artigo localizado na homepage tem seu botão de redirecionamento para a apresentação completa, o botão SOBRE.</p>
 
@@ -310,7 +310,7 @@ if (isset($_GET['id'])) {
 ~~~
 
 <br>
-<h2 id="pesquisa">Sistema de pesquisa</h2>
+<h2 id="pesquisa">✅ Sistema de pesquisa</h2>
 
 <p>Caso o usuário procure por um artigo específico, ele pode optar por digitar uma palavra de seu interesse na barra de pesquisa localizada na sidebar.</p>
 
@@ -358,7 +358,7 @@ if (!empty($array)) {
 ~~~
 
 <br>
-<h2 id="categoria">Filtragem por categoria</h2>
+<h2 id="categoria">✅ Filtragem por categoria</h2>
 
 <p>Na sidebar, o usuário pode filtrar os artigos existentes com base em sua categoria.</p>
 
@@ -375,7 +375,7 @@ https://localhost/SportNews/articles/?cat=, onde a categoria escolhida é passad
 ~~~
 
 <br>
-<h2 id="api">API</h2>
+<h2 id="api">✅ API</h2>
 
 <p>A API – Interface de Programação de Aplicações – escolhida para o projeto foi a https://v2.api-football.com, exclusivamente usada para a criação do dinamismo das tabelas do campeonato brasileiro de futebol.</p>
 
@@ -469,7 +469,7 @@ if ($err) {
 ~~~
 
 <br>
-<h2 id="economia">Economia de código</h2>
+<h2 id="economia">✅ Economia de código</h2>
 
 <p>Como uma boa prática de código limpo, todas as páginas do site foram feitas usando-se o Header e o Footer localizados em /config/header.php e /config/footer.php, respectivamente.</p>
 

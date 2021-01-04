@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+      <meta charset="utf-8">
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+
+</html>
+
 <?php
 require_once '../db/db_connect.php';
 
@@ -16,18 +26,34 @@ $query = "INSERT INTO articles (category, editor, time, main_image, title, subti
       "'" . $content["content"] . "');";
 
 if (mysqli_query($connect, $query)) {
-      $msg = "Artigo enviado com sucesso!" ;
+      alerta("success", "Artigo enviado com sucesso!", false);
+      echo "<script>setTimeout('javascript:fechar();',3500);</script>";
+
+      // Encerrando a sessão
+      session_start();
+      session_unset();
+      session_destroy();
 } else {
-      $msg = "Error: " . $query . "<br>" . mysqli_error($connect);
+      echo "Error: " . $query . "<br>" . mysqli_error($connect);
 }
 
 mysqli_close($connect);
+
+function alerta($type, $title, $msg)
+{
+      echo "<script type='text/javascript'>
+			Swal.fire({
+			  icon: '$type',
+			  title: '$title',
+			  text: '$msg',
+			  showConfirmButton: false
+			});
+			</script>";
+}
 ?>
 
 <script>
-      function fechar(){
-            window.location.href = "/SportNews"
+      function fechar() {
+            window.location.href = "../"
       }
-      setTimeout("javascript:fechar();",10);
-      alert('<?php echo $msg; ?>');
 </script>

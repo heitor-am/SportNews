@@ -64,7 +64,7 @@ mysqli_close($connect);
 
 <p>Como exemplo, tem-se a notícia principal da página:</p>
 
-<p align="center"><img src="/img/to_github/HOMEPAGE-2.png"></p>
+<p align="center"><img src="/img/to_github/homepage.png"></p>
 
 <p>O artigo principal sempre é o mais recente, portanto, recebe a chave “0” no ARRAY, e dessa forma é posto em ordem conforme suas “subchaves” (‘title’, ‘time’, ‘subtitle’, …).</p>
 
@@ -90,11 +90,11 @@ mysqli_close($connect);
 
 <p>Para que o redator possa criar um novo artigo, ele primeiro precisar logar no sistema. A opção para login fica na sidebar.</p>
 
-<p align="center"><img src="/img/to_github/ARTIGOS-1.png"></p>
+<p align="center"><img src="/img/to_github/login.png"></p>
 
 <p>Clicando no botão, um pop-up aparece na tela onde são solicitadas as informações de login: Nome do usuário e senha.</p>
 
-<p align="center"><img src="/img/to_github/ARTIGOS-2.png"></p>
+<p align="center"><img src="/img/to_github/modal.png"></p>
 
 ~~~php
 <!-- Modal -->
@@ -175,7 +175,7 @@ if (!empty($errors)) {
 
 <p>Se as informações forem autenticadas, o usuário será direcionado à página de edição de artigos.</p>
 
-<p align="center"><img src="/img/to_github/ARTIGOS-5.png"></p>
+<p align="center"><img src="/img/to_github/redator.png"></p>
 
 <p>Após preencher os campos de texto, o redator clica em PREVIEW,onde os inputs são inseridos dentro de um ARRAY, e acaba sendo direcionado a uma página que mostra uma pré-visualização do seu artigo, dessa forma, ele poder verificar o resultado final sem haja a necessidade de enviar ao banco.</p>
 
@@ -192,7 +192,7 @@ $content = array(
 
 <p>Trecho do código preview.php, onde os conteúdos dos inputs são inseridos em um ARRAY.</p>
 
-<p align="center"><img src="/img/to_github/ARTIGOS-7.png"></p>
+<p align="center"><img src="/img/to_github/preview.png"></p>
 
 <p>Observe que há duas opções: VOLTAR, caso o redator não tenha gostado do resultado do artigo, e ENVIAR, caso a demonstração tenha sido aprovada.</p>
 
@@ -270,14 +270,14 @@ if (mysqli_query($connect, $query)) {
 
 <p>A Base de dados possui a seguinte estrutura:</p>
 
-<p align="center"><img src="/img/to_github/ARTIGOS-11.png"></p>
+<p align="center"><img src="/img/to_github/tabela.png"></p>
 
 <br>
 <h2 id="artigo">✅ Página do artigo</h2>
 
 <p>Cada “Spoiler” de artigo localizado na homepage tem seu botão de redirecionamento para a apresentação completa, o botão SOBRE.</p>
 
-<p align="center"><img src="/img/to_github/PAGINA-DO-ARTIGO-1.png"></p>
+<p align="center"><img src="/img/to_github/sobre.png"></p>
 
 <p>Ao clicar no botão,  o usuário é direcionado ao arquivo /articles/article.php, tendo como parâmetro o ID do artigo.</p>
 
@@ -314,7 +314,7 @@ if (isset($_GET['id'])) {
 
 <p>Caso o usuário procure por um artigo específico, ele pode optar por digitar uma palavra de seu interesse na barra de pesquisa localizada na sidebar.</p>
 
-<p align="center"><img src="/img/to_github/FILTRAGEM-3.png"></p>
+<p align="center"><img src="/img/to_github/search.png"></p>
 
 <p>Ao digitar uma palavra e pressionar a tecla Enter, o formulário, onde está localizado a barra de pequisa, aciona o arquivo /articles/search.php, que, por sua vez, através do método GET, recebe o conteúdo do input e, logo após, faz uma requisição à Base de dados para receber todos os artigos que possuam o título relacionado ao que foi digitado na barra de pesquisa.</p>
 
@@ -362,7 +362,7 @@ if (!empty($array)) {
 
 <p>Na sidebar, o usuário pode filtrar os artigos existentes com base em sua categoria.</p>
 
-<p align="center"><img src="/img/to_github/FILTRAGEM-1.png"></p>
+<p align="center"><img src="/img/to_github/categoria.png"></p>
 
 <p>Ao clicar em uma das categorias listadas, o usuário é redirecionado a
 https://localhost/SportNews/articles/?cat=, onde a categoria escolhida é passada como parâmetro em cat, e, dessa forma, verá apenas os artigos da categoria escolhida.</p>

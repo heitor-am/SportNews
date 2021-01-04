@@ -1,8 +1,8 @@
 <?php
 // Conexão com BD
 $servername = "localhost";
-$username = "admin";
-$password = "R00t_P4sSw0Rd";
+$username = "sportnews";
+$password = "sportnews";
 $database = "sportnews";
 
 $connect = mysqli_connect($servername, $username, $password, $database);

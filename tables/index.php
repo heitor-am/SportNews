@@ -10,7 +10,11 @@ if (isset($serie)) {
 $_SESSION['code'] = $code;
 
 include 'api.php';
+
+
 include '../config/header.php';
+
+
 ?>
 
 <section id="banner">
@@ -55,5 +59,9 @@ include '../config/header.php';
 </section>
 
 <?php
+
+
 include '../config/footer.php';
+
+
 ?>

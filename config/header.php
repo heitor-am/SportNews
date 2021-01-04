@@ -119,7 +119,7 @@
             <div class="inner">
                 <header id="header" style="padding-top:50px;"><a href="http://localhost/SportNews/" class="logo" style="padding-left:20px;"><img src="http://localhost/SportNews/img/logo/logo.png" alt="logo" style="width:6rem;"></a>
                     <ul class="icons">
-                        <li><a class="icon brands fa-twitter" style="cursor: pointer;" href="https://twitter.com/br_sportnews"><span class="label">Twitter</span></a></li>
+                        <li><a class="icon brands fa-twitter" style="cursor: pointer;" href="https://twitter.com/br_sportnews" target="_blank"><span class="label">Twitter</span></a></li>
                         <li><a class="icon brands fa-facebook-f" style="cursor: pointer;"><span class="label">Facebook</span></a></li>
                         <li><a class="icon brands fa-instagram" style="cursor: pointer;"><span class="label">Instagram</span></a></li>
                         <li><a class="icon brands fa-github" style="cursor: pointer;" href="https://github.com/heitor-am/SportNews" target="_blank"><span class="label">GitHub</span></a></li>

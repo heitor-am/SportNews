@@ -46,7 +46,48 @@ if ($err) {
 ~~~
 Os dados retirados da API são inseridos em um ARRAY, para que o tratamento das informações possa ser feito de maneira mais eficiente, e depois são jogados em uma tabela gerada por tags HTML, que pode ser vista em http://localhost/SportNews/tables/?serie=a ou http://localhost/SportNews/tables/?serie=b, isso ocorre no arquivo /tables/index.php.
 
-![/tables/index.php](/img/to_github/API-2.png "/tables/index.php")
+~~~php
+<section id="banner">
+    <div class="content">
+        <header class="major">
+            <h2>Tabela Brasileirão 2020 - <?php echo $table_values[0]->group ?></h2>
+        </header>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Clube</th>
+                        <th>Pts</th>
+                        <th>PJ</th>
+                        <th>VIT</th>
+                        <th>E</th>
+                        <th>DER</th>
+                        <th>GP</th>
+                        <th>GC</th>
+                        <th>SG</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    for ($x = 0; $x < 20; $x++) {
+                        echo "<tr><td style=min-width:250px;><div style=display:inline-block;width:30px;>" . $table_values[$x]->rank .
+                            "</div><div style=display:inline-block;><img src=" . $table_values[$x]->logo . " style=width:20px;margin-bottom:-5px;margin-right:20px;> " .
+                            $table_values[$x]->teamName . "</div></td>" .
+                            "<td>" . $table_values[$x]->points . "</td>" .
+                            "<td>" . $table_values[$x]->all->matchsPlayed . "</td>" .
+                            "<td>" . $table_values[$x]->all->win . "</td>" .
+                            "<td>" . $table_values[$x]->all->draw . "</td>" .
+                            "<td>" . $table_values[$x]->all->lose . "</td>" .
+                            "<td>" . $table_values[$x]->all->goalsFor . "</td>" .
+                            "<td>" . $table_values[$x]->all->goalsAgainst . "</td>" .
+                            "<td>" . $table_values[$x]->goalsDiff . "</td></tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+</section>
+~~~
 
 ## Artigos
 Para que o redator possa criar um novo artigo, ele primeiro precisar logar no sistema. A opção para login fica na sidebar.
@@ -57,8 +98,42 @@ Clicando no botão, um pop-up aparece na tela onde são solicitadas as informaç
 
 ![POP-UP Login](/img/to_github/ARTIGOS-2.png "POP-UP Login")
 
-![/config/footer.php](/img/to_github/ARTIGOS-3.png "/config/footer.php")
+~~~php
+<!-- Modal -->
+            <div id="modal-login" class="modal">
+                <!-- Conteúdo do modal -->
+                <form class="modal-content" action="http://localhost/SportNews/redator/login.php" method="POST">
+                    <div class="imgcontainer">
+                        <span onclick="document.getElementById('modal-login').style.display='none'" class="close" title="Close Modal">&times;</span>
+                        <img src="http://localhost/SportNews/img/avatar.png" alt="Avatar" class="avatar">
+                    </div>
+                    <div class="container">
+                        <label for="uname">Nome do usuário</label>
+                        <input type="text" placeholder="Digite o nome de usuário" name="uname" required>
 
+                        <label for="psw">Senha</label>
+                        <input type="password" placeholder="Digite a senha" name="psw" required>
+                    </div>
+
+                    <div class="container" style="background-color:#f1f1f1">
+                        <button type="submit" name="btn-login">Login</button>
+                        <span class="psw">Esqueceu a <a onclick="alerta('question', 'Esqueceu sua senha?', 'Por favor, entre em contato com o administrador da página!');">senha?</a></span>
+                    </div>
+                </form>
+            </div>
+
+            <script>
+                // Pegar o modal
+                var modal = document.getElementById('modal-login');
+
+                // Quando o usuário clicar em qualquer lugar fora do modal, feche-o
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script>
+~~~
 Ao clicar no botão LOGIN, todas as informações inseridas nos inputs são atribuídas à variável modal, que, por sua vez, através do método POST, é enviada ao arquivo /redator/login.php, onde é verificado se os dados recebidos estão contidos na Base de dados.
 
 ![/redator/login.php](/img/to_github/ARTIGOS-4.png "/redator/login.php")

@@ -136,15 +136,60 @@ Clicando no botão, um pop-up aparece na tela onde são solicitadas as informaç
 ~~~
 Ao clicar no botão LOGIN, todas as informações inseridas nos inputs são atribuídas à variável modal, que, por sua vez, através do método POST, é enviada ao arquivo /redator/login.php, onde é verificado se os dados recebidos estão contidos na Base de dados.
 
-![/redator/login.php](/img/to_github/ARTIGOS-4.png "/redator/login.php")
+~~~php
+if (isset($_POST['btn-login'])) {
+    $errors = array();
+    $username = mysqli_escape_string($connect, $_POST['uname']);
+    $password = mysqli_escape_string($connect, $_POST['psw']);
 
+    $query = "SELECT username FROM redator WHERE username = '$username'";
+    $result = mysqli_query($connect, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        $password = md5($password);
+        $query = "SELECT * FROM redator WHERE username = '$username' AND password = '$password'";
+
+        $result = mysqli_query($connect, $query);
+
+        if (mysqli_num_rows($result) == 1) {
+            $redator = mysqli_fetch_array($result);
+            mysqli_close($connect);
+            $_SESSION['logado'] = true;
+            $_SESSION['user_id'] = $redator['id'];
+            header('Location: ./');
+        } else {
+            $errors[] = "Senha incorreta";
+        }
+    } else {
+        $errors[] = "Usuário inexistente";
+    }
+}
+
+if (!empty($errors)) {
+    foreach ($errors as $error) {
+        alerta("error", "Oops...", $error);
+        echo "<script>setTimeout('javascript:fechar();',3500);</script>";
+      
+    }
+}
+~~~
 Se as informações forem autenticadas, o usuário será direcionado à página de edição de artigos. 
 
 ![Interface do redator](/img/to_github/ARTIGOS-5.png "Interface do redator")
 
-Após preencher os campos de texto, o redator clica em PREVIEW, onde os inputs são inseridos dentro de um ARRAY, e acaba sendo direcionado a uma página que mostra uma pré-visualização do seu artigo, dessa forma, ele poder verificar o resultado final sem haja a necessidade de enviar ao banco.
+Após preencher os campos de texto, o redator clica em PREVIEW,onde os inputs são inseridos dentro de um ARRAY, e acaba sendo direcionado a uma página que mostra uma pré-visualização do seu artigo, dessa forma, ele poder verificar o resultado final sem haja a necessidade de enviar ao banco.
 
-![preview.php](/img/to_github/ARTIGOS-6.png "Trecho do código preview.php, onde os conteúdos dos inputs são inseridos em um ARRAY.")
+~~~php
+$content = array(
+    "category" => $_POST["category"],
+    "editor" => $_POST["editor"],
+    "main_image" => $_POST["main_image"],
+    "title" => $_POST["title"],
+    "subtitle" => $_POST["subtitle"],
+    "content" => $_POST["content"]
+);
+~~~
+Trecho do código preview.php, onde os conteúdos dos inputs são inseridos em um ARRAY.
 
 ![Preview](/img/to_github/ARTIGOS-7.png "Esse um artigo ainda na etapa de PREVIEW.")
 
@@ -152,25 +197,94 @@ Observe que há duas opções: VOLTAR, caso o redator não tenha gostado do resu
 
 Ao clicar em enviar, o ARRAY com o conteúdo do artigo é enviado ao arquivo /redator/commit_data.php, através do método POST.
 
-![commit_data.php](/img/to_github/ARTIGOS-8.png "Trecho do código preview.php, onde o conteúdo do artigo é preparado para ser enviado ao arquivo commit_data.php")
+~~~php
+<body>
+    <div id="main">
+        <div class="inner">
+            <form action="commit_data.php" method="post">
+                <div id="preview-content">
+                    <section>
+                        <header class="main">
+                            <h1><?php echo $content['title']; ?></h1>
+                            <h2><?php echo $content['subtitle']; ?></h2>
+                            <p><?php echo "Por " . $content['editor'] . "<br><time>" . $time . "</time>"; ?></p>
+                        </header>
+
+                        <?php echo $_POST["content"]; ?>
+                    </section>
+                </div>
+                <a href="./">Voltar</a>
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </div>
+</body>
+~~~
+Trecho do código preview.php, onde o conteúdo do artigo é preparado para ser enviado ao arquivo commit_data.php
 
 **Obs:** O arquivo commit_data.php depende do arquivo /db/db_connect.php, onde é estabelecida a conexão com o banco.
 
-![db_connect.php](/img/to_github/ARTIGOS-9.png "db_connect.php")
+~~~php
+<?php
+// Conexão com BD
+$servername = "localhost";
+$username = "sportnews";
+$password = "sportnews";
+$database = "sportnews";
 
+$connect = mysqli_connect($servername, $username, $password, $database);
+
+if (mysqli_connect_error()) {
+    echo "Connection failed: " . mysqli_connect_error();
+}
+~~~
 No arquivo commit_data.php, onde os dados foram recebidos, é feito um INSERT na base de dados com todo o conteúdo do artigo.
 
-![commit_data.php](/img/to_github/ARTIGOS-10.png "commit_data.php")
+~~~php
+$now = date("d/m/Y H:i");
 
+$query = "INSERT INTO articles (category, editor, time, main_image, title, subtitle, content) VALUES (" .
+      "'" . $content["category"] . "'," .
+      "'" . $content["editor"] . "'," .
+      "'" . $now . "'," .
+      "'" . $content["main_image"] . "'," .
+      "'" . $content["title"] . "'," .
+      "'" . $content["subtitle"] . "'," .
+      "'" . $content["content"] . "');";
+
+if (mysqli_query($connect, $query)) {
+      alerta("success", "Artigo enviado com sucesso!", false);
+      echo "<script>setTimeout('javascript:fechar();',3500);</script>";
+
+      // Encerrando a sessão
+      session_start();
+      session_unset();
+      session_destroy();
+} else {
+      echo "Error: " . $query . "<br>" . mysqli_error($connect);
+}
+~~~
 A Base de dados possui a seguinte estrutura:
 
-![Estrutura base de dado](/img/to_github/ARTIGOS-11.png "Estrutura base de dados")
+![Estrutura base de dados](/img/to_github/ARTIGOS-11.png "Estrutura base de dados")
 
 ## Homepage
 No arquivo index.php, onde é tratado a homepage do site, logo no início do código, é feita uma requisição ao banco de dados.
 
-![index.php](/img/to_github/HOMEPAGE-1.png "index.php")
+~~~php
+<?php
+require_once 'db/db_connect.php';
 
+$query = "SELECT * FROM articles ORDER BY id DESC LIMIT 0,7";
+$result = mysqli_query($connect, $query);
+
+while ($row = mysqli_fetch_assoc($result)) {
+    $array[] = $row;
+}
+
+mysqli_close($connect);
+?>
+~~~
 Nessa requisição, os sete últimos artigos publicados no banco são associados a um ARRAY, que por sua vez, é usado para manipular o ordenamento das notícias ao longo da página.
 
 Como exemplo, tem-se a notícia principal da página:
@@ -179,8 +293,20 @@ Como exemplo, tem-se a notícia principal da página:
 
 O artigo principal sempre é o mais recente, portanto, recebe a chave “0” no ARRAY, e dessa forma é posto em ordem conforme suas “subchaves”(‘title’, ‘time’, ‘subtitle’…).
 
-![index.php](/img/to_github/HOMEPAGE-3.png "index.php")
-
+~~~php
+<section id="banner">
+    <div class="content">
+        <header>
+            <h1><?php echo $array[0]['title']; ?></h1>
+            <p><?php echo $array[0]['time']; ?></p>
+        </header>
+        <p><?php echo $array[0]['subtitle']; ?></p>
+        <ul class="actions">
+            <li><a id="<?php echo $array[0]['id'];?>" class="button big" style="cursor: pointer;" href="articles/article.php?id=<?php echo $array[0]['id']; ?>">Sobre</a></li>
+        </ul>
+    </div><span class="image object"><img src="<?php echo $array[0]['main_image']; ?>" alt=""></span>
+</section>
+~~~
 E isso acontece com todos os demais artigos que aparecem na homepage.
 
 ## Página do artigo
@@ -190,41 +316,99 @@ Cada “Spoiler” de artigo localizado na homepage tem seu botão de redirecion
 
 Ao clicar no botão,  o usuário é direcionado ao arquivo /articles/article.php, tendo como parâmetro o ID do artigo.
 
-![index.php](/img/to_github/PAGINA-DO-ARTIGO-2.png "index.php")
+~~~php
+<ul class="actions">
+            <li><a id="<?php echo $array[0]['id'];?>" class="button big" style="cursor: pointer;" href="articles/article.php?id=<?php echo $array[0]['id']; ?>">Sobre</a></li>
+</ul>
+~~~
 
 Recebendo o ID do artigo, o arquivo article.php faz uma REQUEST no Banco Dados para que as informações daquele artigo em específico sejam extraídas.
 
-![/articles/article.php](/img/to_github/PAGINA-DO-ARTIGO-3.png "/articles/article.php")
+~~~php
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $id = mysqli_escape_string($connect, $id);
 
+    $query = "SELECT * FROM articles WHERE id=$id";
+    $result = mysqli_query($connect, $query);
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<section><header class='main'>" .
+            "<h1 style='margin-bottom: 5px;'>" . $row['title'] . "</h1>" .
+            "<h2 style='$subtitle_style'>" . $row['subtitle'] . "</h2>" .
+            "<p>Por " . $row['editor'] . "<br><time>" . $row['time'] . "</time></p></header>" .
+            $row['content'] . "</section>";
+    }
+
+    mysqli_close($connect);
+}
+~~~
 ## Filtragem de artigos
 Na sidebar, o usuário pode filtrar os artigos existentes com base em sua categoria.
 
 ![Categorias](/img/to_github/FILTRAGEM-1.png "Categorias")
 
 Ao clicar em uma das categorias listadas, o usuário é redirecionado a
-https://localhost/SportNews/articles/?cat={categoria}, onde a categoria escolhida é passada como parâmetro em cat, e, dessa forma, verá apenas os artigos da categoria escolhida.
+https://localhost/SportNews/articles/?cat=, onde a categoria escolhida é passada como parâmetro em cat, e, dessa forma, verá apenas os artigos da categoria escolhida.
 
-![/config/footer.php](/img/to_github/FILTRAGEM-2.png "/config/footer.php")
-
+~~~php
+<li><a href="http://localhost/SportNews/articles/?cat=Futebol">Futebol</a></li>
+<li><a href="http://localhost/SportNews/articles/?cat=NBA">NBA</a></li>
+<li><a href="http://localhost/SportNews/articles/?cat=eSports">eSports</a></li>
+<li><a href="http://localhost/SportNews/articles/?cat=Vôlei">Vôlei</a></li>
+~~~
 ## Pesquisa interna do site
 Caso o usuário procure por um artigo específico, ele pode optar por digitar uma palavra de seu interesse na barra de pesquisa localizada na sidebar.
 
 ![Barra de pesquisa](/img/to_github/FILTRAGEM-3.png "Barra de pesquisa")
 
-Ao digitar uma palavra e pressionar a tecla Enter, o formulário onde está localizado a barra de pequisa aciona o arquivo /articles/search.php, que por sua vez, através do método GET, recebe o conteúdo do input e, logo após, faz uma requisição à Base de dados para receber todos os artigos que possuam o título relacionado ao que foi digitado na barra de pesquisa.
+Ao digitar uma palavra e pressionar a tecla Enter, o formulário, onde está localizado a barra de pequisa, aciona o arquivo /articles/search.php, que, por sua vez, através do método GET, recebe o conteúdo do input e, logo após, faz uma requisição à Base de dados para receber todos os artigos que possuam o título relacionado ao que foi digitado na barra de pesquisa.
 
-![/articles/search.php](/img/to_github/FILTRAGEM-3.png "/articles/search.php")
+~~~php
+if (isset($_GET['query'])) {
+  $search = $_GET['query'];
+  $search = mysqli_escape_string($connect, $search);
 
+  $query = "SELECT * FROM articles WHERE title LIKE '%$search%' ORDER BY id DESC";
+  $result = mysqli_query($connect, $query);
+
+  while ($row = mysqli_fetch_assoc($result)) {
+    $array[] = $row;
+  }
+
+  mysqli_close($connect);
+}
+~~~
 Caso a busca seja favorável, os artigos envolvidos são enviados à tela.
 
-![/articles/search.php](/img/to_github/FILTRAGEM-4.png "/articles/search.php")
-
+~~~php
+<?php
+    if (!empty($array)) {
+      echo "<div class='posts'>";
+      foreach ($array as $a) {
+        echo "<article><a class='image' style='cursor: pointer;'><img src=" . $a['main_image'] . " alt=''></a>" .
+          "<h3>" . $a['title'] . "</h3>" .
+          "<p>" . $a['time'] . "</p>" .
+          "<ul class='actions'>" .
+          "<li><a id='". $a['id'] ."' class='button' " . 
+          "href='./article.php?id=" . $a['id'] . "'style='cursor: pointer;'>Sobre</a></li></ul></article>";
+      }
+      echo "</div>";
+    } else {
+      echo "<div style='text-align:center;margin-top:1.5em;'><p style='font-size:24px;margin-bottom:10px;'>Nenhum resultado encontrado :(</p>" .
+           "<p style='font-size:1em;'>Sua busca por \"" . $search . "\" não retornou resultados.<br>" .
+           "Tente novamente com outros termos.</p></div>";
+    }
+    ?>
+~~~
 ## Header e Footer
-Como uma boa de código limpo, todas as páginas do site foram feitas usando-se o Header e o Footer localizados em /config/header.php e /config/footer.php, respectivamente.
+Como uma boa uma boa prática de código limpo, todas as páginas do site foram feitas usando-se o Header e o Footer localizados em /config/header.php e /config/footer.php
 
-![Começo de todos os arquivos do FrontEnd](/img/to_github/HEADER-FOOTER-1.png "Importando o cabeçalho")
-
-![Fim de todos os arquivos do FrontEnd](/img/to_github/HEADER-FOOTER-1.png "Importando o rodapé")
-
+~~~php
+require_once 'db/db_connect.php';
+~~~
+~~~php
+include 'config/footer.php';
+~~~
 
 

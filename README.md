@@ -426,7 +426,7 @@ https://localhost/SportNews/articles/?cat=, onde a categoria escolhida é passad
 Caso o usuário procure por um artigo específico, ele pode optar por digitar uma palavra de seu interesse na barra de pesquisa localizada na sidebar.
 </p>
 
-<p align="center"><img src="/img/to_github/FILTRAGEM-3.png."></p>
+<p align="center"><img src="/img/to_github/FILTRAGEM-3.png"></p>
 
 <p align="center">
 Ao digitar uma palavra e pressionar a tecla Enter, o formulário, onde está localizado a barra de pequisa, aciona o arquivo /articles/search.php, que, por sua vez, através do método GET, recebe o conteúdo do input e, logo após, faz uma requisição à Base de dados para receber todos os artigos que possuam o título relacionado ao que foi digitado na barra de pesquisa.
@@ -475,7 +475,7 @@ Caso a busca seja favorável, os artigos envolvidos são enviados à tela.
 <h3 align="center">Header e Footer</h3>
 
 <p align="center">
-Como uma boa uma boa prática de código limpo, todas as páginas do site foram feitas usando-se o Header e o Footer localizados em /config/header.php e /config/footer.php
+Como uma boa prática de código limpo, todas as páginas do site foram feitas usando-se o Header e o Footer localizados em /config/header.php e /config/footer.php
 </p>
 
 ~~~php

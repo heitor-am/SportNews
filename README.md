@@ -104,14 +104,14 @@ Os dados retirados da API são inseridos em um ARRAY, para que o tratamento das 
 Para que o redator possa criar um novo artigo, ele primeiro precisar logar no sistema. A opção para login fica na sidebar.
 </p>
 
+<p align="center"><img src="/img/to_github/ARTIGOS-1.png"></p>
 
-![Botão Login](/img/to_github/ARTIGOS-1.png "Botão Login")
 
 <p align="center">
 Clicando no botão, um pop-up aparece na tela onde são solicitadas as informações de login: Nome do usuário e senha.
 </p>
 
-![POP-UP Login](/img/to_github/ARTIGOS-2.png "POP-UP Login")
+<p align="center"><img src="/img/to_github/ARTIGOS-2.png"></p>
 
 ~~~php
 <!-- Modal -->
@@ -195,7 +195,7 @@ if (!empty($errors)) {
 Se as informações forem autenticadas, o usuário será direcionado à página de edição de artigos. 
 </p>
 
-![Interface do redator](/img/to_github/ARTIGOS-5.png "Interface do redator")
+<p align="center"><img src="/img/to_github/ARTIGOS-5.png"></p>
 
 <p align="center">
 Após preencher os campos de texto, o redator clica em PREVIEW,onde os inputs são inseridos dentro de um ARRAY, e acaba sendo direcionado a uma página que mostra uma pré-visualização do seu artigo, dessa forma, ele poder verificar o resultado final sem haja a necessidade de enviar ao banco.
@@ -216,7 +216,7 @@ $content = array(
 Trecho do código preview.php, onde os conteúdos dos inputs são inseridos em um ARRAY.
 </p>
 
-![Preview](/img/to_github/ARTIGOS-7.png "Esse um artigo ainda na etapa de PREVIEW.")
+<p align="center"><img src="/img/to_github/ARTIGOS-7.png"></p>
 
 <p align="center">
 Observe que há duas opções: VOLTAR, caso o redator não tenha gostado do resultado do artigo, e ENVIAR, caso a demonstração tenha sido aprovada.
@@ -304,7 +304,7 @@ if (mysqli_query($connect, $query)) {
 A Base de dados possui a seguinte estrutura:
 </p>
 
-![Estrutura base de dados](/img/to_github/ARTIGOS-11.png "Estrutura base de dados")
+<p align="center"><img src="/img/to_github/ARTIGOS-11.png"></p>
 
 <h3 align="center">Homepage</h3>
 
@@ -335,7 +335,7 @@ Nessa requisição, os sete últimos artigos publicados no banco são associados
 Como exemplo, tem-se a notícia principal da página:
 </p>
 
-![Notícia principal da Homepage](/img/to_github/HOMEPAGE-2.png "Notícia principal da Homepage")
+<p align="center"><img src="/img/to_github/HOMEPAGE-2.png"></p>
 
 <p align="center">
 O artigo principal sempre é o mais recente, portanto, recebe a chave “0” no ARRAY, e dessa forma é posto em ordem conforme suas “subchaves”(‘title’, ‘time’, ‘subtitle’…).
@@ -364,7 +364,7 @@ E isso acontece com todos os demais artigos que aparecem na homepage.
 Cada “Spoiler” de artigo localizado na homepage tem seu botão de redirecionamento para a apresentação completa, o botão SOBRE.
 </p>
 
-![Botão SOBRE](/img/to_github/PAGINA-DO-ARTIGO-1.png "Botão SOBRE")
+<p align="center"><img src="/img/to_github/PAGINA-DO-ARTIGO-1.png"></p>
 
 <p align="center">
 Ao clicar no botão,  o usuário é direcionado ao arquivo /articles/article.php, tendo como parâmetro o ID do artigo.
@@ -406,7 +406,7 @@ if (isset($_GET['id'])) {
 Na sidebar, o usuário pode filtrar os artigos existentes com base em sua categoria.
 </p>
 
-![Categorias](/img/to_github/FILTRAGEM-1.png "Categorias")
+<p align="center"><img src="/img/to_github/FILTRAGEM-1.png"></p>
 
 <p align="center">
 Ao clicar em uma das categorias listadas, o usuário é redirecionado a
@@ -426,7 +426,7 @@ https://localhost/SportNews/articles/?cat=, onde a categoria escolhida é passad
 Caso o usuário procure por um artigo específico, ele pode optar por digitar uma palavra de seu interesse na barra de pesquisa localizada na sidebar.
 </p>
 
-![Barra de pesquisa](/img/to_github/FILTRAGEM-3.png "Barra de pesquisa")
+<p align="center"><img src="/img/to_github/FILTRAGEM-3.png."></p>
 
 <p align="center">
 Ao digitar uma palavra e pressionar a tecla Enter, o formulário, onde está localizado a barra de pequisa, aciona o arquivo /articles/search.php, que, por sua vez, através do método GET, recebe o conteúdo do input e, logo após, faz uma requisição à Base de dados para receber todos os artigos que possuam o título relacionado ao que foi digitado na barra de pesquisa.
@@ -479,7 +479,7 @@ Como uma boa uma boa prática de código limpo, todas as páginas do site foram 
 </p>
 
 ~~~php
-require_once 'db/db_connect.php';
+include 'config/header.php';
 ~~~
 ~~~php
 include 'config/footer.php';

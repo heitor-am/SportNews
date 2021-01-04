@@ -1,11 +1,11 @@
-<h1 align="center">Documentação</h1>
-<h3 align="center">API</h3>
+<h1>Documentação</h1>
+<h2>API</h3>
 
-<p align="center">
+<p>
 A API – Interface de Programação de Aplicações – escolhida foi a https://v2.api-football.com, exclusivamente usada para a criação do dinamismo das tabelas do campeonato brasileiro de futebol.
 </p>
 
-<p align="center">
+<p>
 O arquivo de conexão à API está em /tables/api.php
 </p>
 
@@ -51,7 +51,7 @@ if ($err) {
 }
 ~~~
 
-<p align="center">
+<p>
 Os dados retirados da API são inseridos em um ARRAY, para que o tratamento das informações possa ser feito de maneira mais eficiente, e depois são jogados em uma tabela gerada por tags HTML, que pode ser vista em http://localhost/SportNews/tables/?serie=a ou http://localhost/SportNews/tables/?serie=b, isso ocorre no arquivo /tables/index.php.
 </p>
 
@@ -98,16 +98,16 @@ Os dados retirados da API são inseridos em um ARRAY, para que o tratamento das 
 </section>
 ~~~
 
-<h3 align="center">Artigos</h3>
+<h2>Artigos</h2>
 
-<p align="center">
+<p>
 Para que o redator possa criar um novo artigo, ele primeiro precisar logar no sistema. A opção para login fica na sidebar.
 </p>
 
 <p align="center"><img src="/img/to_github/ARTIGOS-1.png"></p>
 
 
-<p align="center">
+<p>
 Clicando no botão, um pop-up aparece na tela onde são solicitadas as informações de login: Nome do usuário e senha.
 </p>
 
@@ -150,7 +150,7 @@ Clicando no botão, um pop-up aparece na tela onde são solicitadas as informaç
             </script>
 ~~~
 
-<p align="center">
+<p>
 Ao clicar no botão LOGIN, todas as informações inseridas nos inputs são atribuídas à variável modal, que, por sua vez, através do método POST, é enviada ao arquivo /redator/login.php, onde é verificado se os dados recebidos estão contidos na Base de dados.
 </p>
 
@@ -191,13 +191,13 @@ if (!empty($errors)) {
     }
 }
 ~~~
-<p align="center">
+<p>
 Se as informações forem autenticadas, o usuário será direcionado à página de edição de artigos. 
 </p>
 
 <p align="center"><img src="/img/to_github/ARTIGOS-5.png"></p>
 
-<p align="center">
+<p>
 Após preencher os campos de texto, o redator clica em PREVIEW,onde os inputs são inseridos dentro de um ARRAY, e acaba sendo direcionado a uma página que mostra uma pré-visualização do seu artigo, dessa forma, ele poder verificar o resultado final sem haja a necessidade de enviar ao banco.
 </p>
 
@@ -212,17 +212,17 @@ $content = array(
 );
 ~~~
 
-<p align="center">
+<p>
 Trecho do código preview.php, onde os conteúdos dos inputs são inseridos em um ARRAY.
 </p>
 
 <p align="center"><img src="/img/to_github/ARTIGOS-7.png"></p>
 
-<p align="center">
+<p>
 Observe que há duas opções: VOLTAR, caso o redator não tenha gostado do resultado do artigo, e ENVIAR, caso a demonstração tenha sido aprovada.
 </p>
 
-<p align="center">
+<p>
 Ao clicar em enviar, o ARRAY com o conteúdo do artigo é enviado ao arquivo /redator/commit_data.php, através do método POST.
 </p>
 
@@ -249,10 +249,10 @@ Ao clicar em enviar, o ARRAY com o conteúdo do artigo é enviado ao arquivo /re
     </div>
 </body>
 ~~~
-<p align="center">
+<p>
 Trecho do código preview.php, onde o conteúdo do artigo é preparado para ser enviado ao arquivo commit_data.php
 </p>
-<p align="center">
+<p>
 <b>Obs:</b> O arquivo commit_data.php depende do arquivo /db/db_connect.php, onde é estabelecida a conexão com o banco.
 </p>
 
@@ -271,7 +271,7 @@ if (mysqli_connect_error()) {
 }
 ~~~
 
-<p align="center">
+<p>
 No arquivo commit_data.php, onde os dados foram recebidos, é feito um INSERT na base de dados com todo o conteúdo do artigo.
 </p>
 
@@ -300,15 +300,15 @@ if (mysqli_query($connect, $query)) {
 }
 ~~~
 
-<p align="center">
+<p>
 A Base de dados possui a seguinte estrutura:
 </p>
 
 <p align="center"><img src="/img/to_github/ARTIGOS-11.png"></p>
 
-<h3 align="center">Homepage</h3>
+<h2>Homepage</h3>
 
-<p align="center">
+<p>
 No arquivo index.php, onde é tratado a homepage do site, logo no início do código, é feita uma requisição ao banco de dados.
 </p>
 
@@ -327,17 +327,17 @@ mysqli_close($connect);
 ?>
 ~~~
 
-<p align="center">
+<p>
 Nessa requisição, os sete últimos artigos publicados no banco são associados a um ARRAY, que por sua vez, é usado para manipular o ordenamento das notícias ao longo da página.
 </p>
 
-<p align="center">
+<p>
 Como exemplo, tem-se a notícia principal da página:
 </p>
 
 <p align="center"><img src="/img/to_github/HOMEPAGE-2.png"></p>
 
-<p align="center">
+<p>
 O artigo principal sempre é o mais recente, portanto, recebe a chave “0” no ARRAY, e dessa forma é posto em ordem conforme suas “subchaves”(‘title’, ‘time’, ‘subtitle’…).
 </p>
 
@@ -355,18 +355,18 @@ O artigo principal sempre é o mais recente, portanto, recebe a chave “0” no
     </div><span class="image object"><img src="<?php echo $array[0]['main_image']; ?>" alt=""></span>
 </section>
 ~~~
-<p align="center">
+<p>
 E isso acontece com todos os demais artigos que aparecem na homepage.
 </p>
 
-<h3 align="center">Página do artigo</h3>
+<h2>Página do artigo</h2>
 <p align="center">
 Cada “Spoiler” de artigo localizado na homepage tem seu botão de redirecionamento para a apresentação completa, o botão SOBRE.
 </p>
 
 <p align="center"><img src="/img/to_github/PAGINA-DO-ARTIGO-1.png"></p>
 
-<p align="center">
+<p>
 Ao clicar no botão,  o usuário é direcionado ao arquivo /articles/article.php, tendo como parâmetro o ID do artigo.
 </p>
 
@@ -376,7 +376,7 @@ Ao clicar no botão,  o usuário é direcionado ao arquivo /articles/article.php
 </ul>
 ~~~
 
-<p align="center">
+<p>
 Recebendo o ID do artigo, o arquivo article.php faz uma REQUEST no Banco Dados para que as informações daquele artigo em específico sejam extraídas.
 </p>
 
@@ -400,15 +400,15 @@ if (isset($_GET['id'])) {
 }
 ~~~
 
-<h3 align="center">Filtragem de artigos</h3>
+<h2>Filtragem de artigos</h2>
 
-<p align="center">
+<p>
 Na sidebar, o usuário pode filtrar os artigos existentes com base em sua categoria.
 </p>
 
 <p align="center"><img src="/img/to_github/FILTRAGEM-1.png"></p>
 
-<p align="center">
+<p>
 Ao clicar em uma das categorias listadas, o usuário é redirecionado a
 https://localhost/SportNews/articles/?cat=, onde a categoria escolhida é passada como parâmetro em cat, e, dessa forma, verá apenas os artigos da categoria escolhida.
 </p>
@@ -420,15 +420,15 @@ https://localhost/SportNews/articles/?cat=, onde a categoria escolhida é passad
 <li><a href="http://localhost/SportNews/articles/?cat=Vôlei">Vôlei</a></li>
 ~~~
 
-<h3 align="center">Pesquisa interna do site</h3>
+<h2>Pesquisa interna do site</h2>
 
-<p align="center">
+<p>
 Caso o usuário procure por um artigo específico, ele pode optar por digitar uma palavra de seu interesse na barra de pesquisa localizada na sidebar.
 </p>
 
 <p align="center"><img src="/img/to_github/FILTRAGEM-3.png"></p>
 
-<p align="center">
+<p>
 Ao digitar uma palavra e pressionar a tecla Enter, o formulário, onde está localizado a barra de pequisa, aciona o arquivo /articles/search.php, que, por sua vez, através do método GET, recebe o conteúdo do input e, logo após, faz uma requisição à Base de dados para receber todos os artigos que possuam o título relacionado ao que foi digitado na barra de pesquisa.
 </p>
 
@@ -448,7 +448,7 @@ if (isset($_GET['query'])) {
 }
 ~~~
 
-<p align="center">
+<p>
 Caso a busca seja favorável, os artigos envolvidos são enviados à tela.
 </p>
 
@@ -472,9 +472,9 @@ Caso a busca seja favorável, os artigos envolvidos são enviados à tela.
     }
     ?>
 ~~~
-<h3 align="center">Header e Footer</h3>
+<h2>Header e Footer</h2>
 
-<p align="center">
+<p>
 Como uma boa prática de código limpo, todas as páginas do site foram feitas usando-se o Header e o Footer localizados em /config/header.php e /config/footer.php
 </p>
 

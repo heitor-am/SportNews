@@ -1,3 +1,4 @@
+<p align="center"><img src="/img/logo/logo.png"></p>
 <h1>Documentação</h1>
 <h2>API</h3>
 

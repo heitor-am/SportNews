@@ -142,7 +142,7 @@ Se as informações forem autenticadas, o usuário será direcionado à página 
 
 ![Interface do redator](/img/to_github/ARTIGOS-5.png "Interface do redator")
 
-Após preencher os campos de texto, o redator clica em PREVIEW,onde os inputs são inseridos dentro de um ARRAY, e acaba sendo direcionado a uma página que mostra uma pré-visualização do seu artigo, dessa forma, ele poder verificar o resultado final sem haja a necessidade de enviar ao banco.
+Após preencher os campos de texto, o redator clica em PREVIEW, onde os inputs são inseridos dentro de um ARRAY, e acaba sendo direcionado a uma página que mostra uma pré-visualização do seu artigo, dessa forma, ele poder verificar o resultado final sem haja a necessidade de enviar ao banco.
 
 ![preview.php](/img/to_github/ARTIGOS-6.png "Trecho do código preview.php, onde os conteúdos dos inputs são inseridos em um ARRAY.")
 
@@ -202,7 +202,7 @@ Na sidebar, o usuário pode filtrar os artigos existentes com base em sua catego
 ![Categorias](/img/to_github/FILTRAGEM-1.png "Categorias")
 
 Ao clicar em uma das categorias listadas, o usuário é redirecionado a
-https://localhost/SportNews/articles/?cat=, onde a categoria escolhida é passada como parâmetro em cat, e, dessa forma, verá apenas os artigos da categoria escolhida.
+https://localhost/SportNews/articles/?cat={categoria}, onde a categoria escolhida é passada como parâmetro em cat, e, dessa forma, verá apenas os artigos da categoria escolhida.
 
 ![/config/footer.php](/img/to_github/FILTRAGEM-2.png "/config/footer.php")
 
@@ -211,7 +211,7 @@ Caso o usuário procure por um artigo específico, ele pode optar por digitar um
 
 ![Barra de pesquisa](/img/to_github/FILTRAGEM-3.png "Barra de pesquisa")
 
-Ao digitar uma palavra e pressionar a tecla Enter, o formulário, onde está localizado a barra de pequisa, aciona o arquivo /articles/search.php, que, por sua vez, através do método GET, recebe o conteúdo do input e, logo após, faz uma requisição à Base de dados para receber todos os artigos que possuam o título relacionado ao que foi digitado na barra de pesquisa.
+Ao digitar uma palavra e pressionar a tecla Enter, o formulário onde está localizado a barra de pequisa aciona o arquivo /articles/search.php, que por sua vez, através do método GET, recebe o conteúdo do input e, logo após, faz uma requisição à Base de dados para receber todos os artigos que possuam o título relacionado ao que foi digitado na barra de pesquisa.
 
 ![/articles/search.php](/img/to_github/FILTRAGEM-3.png "/articles/search.php")
 
@@ -220,11 +220,11 @@ Caso a busca seja favorável, os artigos envolvidos são enviados à tela.
 ![/articles/search.php](/img/to_github/FILTRAGEM-4.png "/articles/search.php")
 
 ## Header e Footer
-Como uma boa uma boa prática de código limpo, todas as páginas do site foram feitas usando-se o Header e o Footer localizados em /config/header.php e /config/footer.php
+Como uma boa de código limpo, todas as páginas do site foram feitas usando-se o Header e o Footer localizados em /config/header.php e /config/footer.php, respectivamente.
 
-![Começo de todos os aquivos do FrontEnd](/img/to_github/HEADER-FOOTER-1.png "Importando o cabeçalho")
+![Começo de todos os arquivos do FrontEnd](/img/to_github/HEADER-FOOTER-1.png "Importando o cabeçalho")
 
-![Termino de todos os aquivos do FrontEnd](/img/to_github/HEADER-FOOTER-1.png "Importando o rodapé")
+![Fim de todos os arquivos do FrontEnd](/img/to_github/HEADER-FOOTER-1.png "Importando o rodapé")
 
 
 

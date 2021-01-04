@@ -2,7 +2,7 @@
 ## API
 A API – Interface de Programação de Aplicações – escolhida foi a https://v2.api-football.com, exclusivamente usada para a criação do dinamismo das tabelas do campeonato brasileiro de futebol.
 
-O aquivo de conexão à API está em /tables/api.php
+O arquivo de conexão à API está em /tables/api.php
 
 ![/tables/api.php](/img/to_github/API-1.png "/tables/api.php")
 

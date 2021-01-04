@@ -39,7 +39,6 @@ $time = date("d/m/Y H:i");;
 
         h2 {
             color: #7f888f;
-            font-family: "Roboto Slab", serif;
             font-size: 1.15em;
             font-weight: 400;
             letter-spacing: 0.075em;

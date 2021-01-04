@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>SportNews</title>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="http://localhost/SportNews/assets/css/main_modified.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="shortcut icon" href="http://localhost/SportNews/img/logo/favicon.png">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <style>
         /* Centralize a imagem */
@@ -120,6 +123,6 @@
                         <li><a class="icon brands fa-facebook-f" style="cursor: pointer;"><span class="label">Facebook</span></a></li>
                         <li><a class="icon brands fa-instagram" style="cursor: pointer;"><span class="label">Instagram</span></a></li>
                         <li><a class="icon brands fa-github" style="cursor: pointer;" href="https://github.com/heitor-am/SportNews" target="_blank"><span class="label">GitHub</span></a></li>
-                        <li><a class="icon brands fa-bitcoin" style="cursor: pointer;" href="https://tippin.me/@br_sportnews" target="_blank"><span class="label">Apoie</span></a></li>
+                        <li><a class="icon brands fa-bitcoin" style="cursor: pointer;" href="https://tippin.me/@TobiasForge_" target="_blank"><span class="label">Apoie</span></a></li>
                     </ul>
                 </header>

@@ -68,7 +68,7 @@
 
                     <div class="container" style="background-color:#f1f1f1">
                         <button type="submit" name="btn-login">Login</button>
-                        <span class="psw">Esqueceu a <a href="#">senha?</a></span>
+                        <span class="psw">Esqueceu a <a onclick="alerta('question', 'Esqueceu sua senha?', 'Por favor, entre em contato com o administrador da página!');">senha?</a></span>
                     </div>
                 </form>
             </div>
@@ -84,6 +84,25 @@
                     }
                 }
             </script>
+
+            <!-- Alert modificado -->
+            <script type="text/javascript">
+                function alerta(type, title, mensagem) {
+                    Swal.fire({
+                        icon: type,
+                        title: title,
+                        text: mensagem,
+                        showConfirmButton: false,
+                        timer: 5000,
+                        showClass: {
+                            popup: 'animate__animated animate__fadeInDown'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        }
+                    });
+                }
+            </script>
         </section>
 
         <!-- Section -->
@@ -92,7 +111,7 @@
                 <h2>Contato</h2>
             </header>
             <ul class="contact">
-                <li class="icon solid fa-envelope"><a style="cursor: pointer;">contato.sportnews@outlook.com</a></li>
+                <li class="icon solid fa-envelope">contato.sportnews@outlook.com</li>
                 <li class="icon solid fa-phone">(86) 98816-9381</li>
             </ul>
         </section>

@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+
+</html>
+
 <?php
 require_once '../db/db_connect.php';
 
@@ -33,16 +43,27 @@ if (isset($_POST['btn-login'])) {
 
 if (!empty($errors)) {
     foreach ($errors as $error) {
-        echo "<script>" .
-        'setTimeout("javascript:fechar();",10);' .
-        'alert("' . $error . '");' .
-        '</script>';
+        alerta("error", "Oops...", $error);
+        echo "<script>setTimeout('javascript:fechar();',3500);</script>";
+      
     }
+}
+
+function alerta($type, $title, $msg)
+{
+    echo "<script type='text/javascript'>
+			Swal.fire({
+			  icon: '$type',
+			  title: '$title',
+			  text: '$msg',
+			  showConfirmButton: false
+			});
+			</script>";
 }
 ?>
 
 <script>
-      function fechar(){
-            window.location.href = "/SportNews"
-      }
+    function fechar() {
+        window.location.href = "../"
+    }
 </script>

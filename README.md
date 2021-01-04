@@ -11,16 +11,34 @@
 
 <hr>
 
-<p align="center">
- <a href="#homepage">Homepage</a> •
- <a href="#artigos">Artigos</a> • 
- <a href="#artigo">Página do artigo</a> • 
- <a href="#pesquisa">Sistema de pesquisa</a> • 
- <a href="#categoria">Filtragem por categoria</a> • 
- <a href="#api">API</a> • 
- <a href="#economia">Economia de código</a> • 
- <a href="#licenca">Licença</a>
-</p>
+
+🏁 Tópicos
+=================
+<!--ts-->
+   * [Tecnologias](#tecnologias)
+   * [Homepage](#homepage)
+   * [Artigos](#artigos)
+   * [Página de artigo](#artigo)
+   * [Sistema de pesquisa](#pesquisa)
+   * [Filtragem por categoria](#categoria)
+   * [API](#api)
+   * [Economia de código](#economia)
+   * [LICENSE](#licenca)
+<!--te-->
+
+<hr>
+
+<h2 id="tecnologias">🛠 Tecnologias</h2>
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [HTML](https://www.w3.org/)
+- [CSS](https://www.w3.org/)
+- [JavaScript](https://www.w3.org/)
+- [PHP](https://www.php.net/)
+- [Sass](https://sass-lang.com/)
+- [JQuery](https://jquery.com/)
+
 
 <br>
 <h2 id="homepage">Homepage</h2>

@@ -1,16 +1,16 @@
---CRIANDO O USUARIO
+/*!CRIANDO O USUARIO*/
 CREATE USER 'sportnews'@'localhost' IDENTIFIED BY 'sportnews';
 
---GARANTINDO PRIVILÉGIOS AO USUARIO RECEM CRIADO
+/*!GARANTINDO PRIVILÉGIOS AO USUARIO RECEM CRIADO*/
 GRANT ALL PRIVILEGES ON * . * TO 'sportnews'@'localhost';
 
---CRIANDO A BASE DE DADOS sportnews
+/*!CRIANDO A BASE DE DADOS sportnews*/
 CREATE DATABASE sportnews;
 
---USANDO A BASE DE DADOS sportnews
+/*!USANDO A BASE DE DADOS sportnews*/
 USE sportnews;
 
---CRIANDO A TABELA redator
+/*!CRIANDO A TABELA redator*/
 CREATE TABLE IF NOT EXISTS `redator` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `redator` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
---INSERINDO DADOS NA TABELA redator
+/*!INSERINDO DADOS NA TABELA redator*/
 INSERT INTO `redator` (`id`, `username`, `password`) VALUES
 (1, 'Swan', 'e8d95a51f3af4a3b134bf6bb680a213a'),
 (2, 'Douglas', 'e8d95a51f3af4a3b134bf6bb680a213a'),
@@ -27,7 +27,7 @@ INSERT INTO `redator` (`id`, `username`, `password`) VALUES
 (5, 'Yan', 'e8d95a51f3af4a3b134bf6bb680a213a'),
 (6, 'Francieric', 'e8d95a51f3af4a3b134bf6bb680a213a');
 
---CRIANDO A TABELA articles
+/*!CRIANDO A TABELA articles*/
 CREATE TABLE IF NOT EXISTS `articles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `category` varchar(255) NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
---INSERINDO DADOS NA TABELA ARTICLES
+/*!INSERINDO DADOS NA TABELA ARTICLES*/
 INSERT INTO `articles` (`id`, `category`, `editor`, `time`, `main_image`, `title`, `subtitle`, `content`) VALUES
 (1, 'futebol', 'Pedro', '2020-12-28 16:24:34', 'https://s2.glbimg.com/dC9fGl9ZvOQk4RFahMBXE9dL2tI=/0x0:1280x960/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2020/c/A/fsNFMcRDePCgHVMWANXg/equ2b1cwmaibbmf.jpg', 'Camisas do Sport em homenagem ao vencedor do Fifa Fan Award esgotam em uma semana', 'Renda dos uniformes, utilizado pelo elenco contra o Grêmio e vendido a R$ 300 cada, será revertida para Marivaldo, torcedor que caminha 60 quilômetros para assistir aos jogos do clube', '<p>A venda das camisas do Sport em homenagem a Marivaldo, vencedor do prêmio Fifa Fan Award 2020, precisaram de uma semana para esgotar. Nesta segunda-feira, o clube anunciou o fim da comercialização - que havia começado dia 21 de dezembro, em uma ação promovida pelo Rubro-negro. De acordo com a assessoria de imprensa, a renda arrecadada será doada para o torcedor, que sofre com problemas financeiros. </p><p>As camisas - que estavam no valor de R$ 300 - foram utilizadas pelo elenco no empate com o Grêmio, no dia 19 de dezembro. A quantidade de peças vendidas ainda não foi detalhada. Na ocasião da ação, Marivaldo havia recém-conquistado o prêmio da Fifa e - também por esse motivo - ganhou o plano de sócio Ouro (mais alto que existe na Ilha do Retiro). </p>'),
 (2, 'futebol', 'Pedro', '2020-12-28 16:30:42', 'https://s2.glbimg.com/QXzKV6K5uv2ai482Xrl87Tud1Xk=/0x0:1736x977/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2020/F/3/HVIHDqQGW6DKNmB6eyoQ/134432155-2237110286437945-8366339451310114159-o.jpg', 'Bolsonaro publica foto com a camisa do Santos e vai à Vila Belmiro em jogo beneficente', 'Presidente deve passar Réveillon no litoral e participará de evento promovido por Narciso', '<p>O presidente Jair Bolsonaro (sem partido) postou uma foto com a camisa do Santos nesta segunda-feira. Ele irá à Vila Belmiro nesta tarde no jogo beneficente \"Natal Sem Fome\", promovido pelo ex-jogador Narciso. </p><p>O evento arrecada alimentos e brinquedos que serão doados para entidades assistenciais da Baixada Santista. O jogo contará com a presença de ex-jogadores e outras personalidades. </p><p><span class=\"image right\"><img src=\"https://s2.glbimg.com/QXzKV6K5uv2ai482Xrl87Tud1Xk=/0x0:1736x977/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2020/F/3/HVIHDqQGW6DKNmB6eyoQ/134432155-2237110286437945-8366339451310114159-o.jpg\" alt=\"Bolsonaro com a camisa do Santos — Foto: Reprodução/Facebook \"></span>Bolsonaro já esteve na Vila Belmiro em novembro do ano passado, num clássico entre Santos e São Paulo, que terminou empatado em 1 a 1. Na ocasião, a torcida do Peixe se dividiu entre vaias e aplausos. </p><p>O presidente deve passar o Réveillon em Guarujá, cidade vizinha a Santos. A programação inicial prevê o retorno dele a Brasília no dia 4 de janeiro. </p>'),

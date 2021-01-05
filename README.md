@@ -193,7 +193,7 @@ $content = array(
 
 <p align="center"><img width="700px" src="/img/to_github/preview.png"></p>
 
-<p>Observe que há duas opções: </em></strong>Voltar</em></strong>, caso o redator não tenha gostado do resultado do artigo, e <strong><em>Enviar</em></strong>, caso a demonstração tenha sido aprovada.</p>
+<p>Observe que há duas opções: <strong><em>Voltar</em></strong>, caso o redator não tenha gostado do resultado do artigo, e <strong><em>Enviar</em></strong>, caso a demonstração tenha sido aprovada.</p>
 
 <p>Ao clicar em <strong><em>Enviar</em></strong>, o <strong><em>array</em></strong> com o conteúdo do artigo é enviado ao arquivo <code>/redator/commit_data.php</code>, através do método <strong><em>POST</em></strong>.</p>
 

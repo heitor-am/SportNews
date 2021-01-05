@@ -286,7 +286,7 @@ if (mysqli_query($connect, $query)) {
 </ul>
 ~~~
 
-<p>Recebendo o <strong><em>id</em></strong> do artigo, o arquivo <code>article.php</code> faz uma REQUEST no Banco de Dados para que as informações daquele artigo em específico sejam extraídas.</p>
+<p>Recebendo o <strong><em>id</em></strong> do artigo, o arquivo <code>article.php</code> faz uma <strong><em>REQUEST</em></strong> no Banco de Dados para que as informações daquele artigo em específico sejam extraídas.</p>
 
 ~~~php
 if (isset($_GET['id'])) {

@@ -176,7 +176,7 @@ if (!empty($errors)) {
 
 <p align="center"><img src="/img/to_github/redator.png"></p>
 
-<p>Após preencher os campos de texto, o redator clica em <strong><em>Preview</em></strong>, onde os inputs são inseridos dentro de um <strong><em>array</em></strong>, e acaba sendo direcionado a uma página que mostra uma pré-visualização do seu artigo, dessa forma, ele poder verificar o resultado final sem que haja a necessidade de enviar ao Banco de Dados.</p>
+<p>Após preencher os campos de texto, o redator clica em <strong><em>Preview</em></strong>, onde os inputs são inseridos dentro de um <strong><em>array</em></strong>, e acaba sendo direcionado a uma página que mostra uma pré-visualização do seu artigo, dessa forma, ele pode verificar o resultado final sem que haja a necessidade de enviar ao Banco de Dados.</p>
 
 ~~~php
 $content = array(

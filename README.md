@@ -69,7 +69,7 @@ $ sudo mysql
 mysql> source /var/www/html/SportNews/db/init.sql;
 ```
 
-<p>4️⃣ Pronto, agora o Banco de Dados está preparado para executar o arquivo <code>SportNews/index.php</code>.</p>
+<p>Pronto, agora o Banco de Dados está preparado para executar o arquivo <code>SportNews/index.php</code>.</p>
 
 <hr>
 

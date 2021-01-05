@@ -14,6 +14,8 @@
 <h2>🏁 Tópicos</h2>
 
 <!--ts-->
+   * [Pré-requisitos](#tecnologias) ✅
+   * [Preparando o Banco de Dados](#homepage) 🎲
    * [Tecnologias](#tecnologias) 🛠
    * [Homepage](#homepage) 🏠
    * [Login e Artigos](#artigos) 🔏
@@ -24,6 +26,48 @@
    * [Economia de código](#economia) 👨🏻‍💻
    * [LICENSE](#licenca) 📝
 <!--te-->
+
+<hr>
+
+<h2 id="requisitos"> ✅ Pré-requisitos</h2>
+
+<p>Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:</p>
+
+- [x] Apache
+- [x] MySQL
+- [x] PHP
+
+<p>Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)</p>
+
+<hr>
+
+<h2 id="bd">🎲 Preparando o Banco de Dados</h2>
+
+<p>0️⃣ Acesse o diretório onde vai ficar o projeto, no terminal/cmd:</p>
+
+```bash
+$ cd /var/www/html/ 
+```
+
+<p>1️⃣ Clone este repositório:</p>
+
+```bash
+$ git clone https://github.com/heitor-am/SportNews
+```
+
+<p>2️⃣ Vá para o diretório db:</p>
+
+```bash
+$ cd /SportNews/db
+```
+
+<p>3️⃣ Execute o arquivo <code>init.sql</code>, no MySQL:</p>
+
+```bash
+$ sudo mysql init.sql
+```
+
+<p>4️⃣ Pronto, agora o Banco de Dados está preparado para executar o arquivo <code>SportNews/index.php</code>.</p>
 
 <hr>
 

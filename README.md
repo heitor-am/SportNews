@@ -274,7 +274,7 @@ $content = array(
 // Conexão com BD
 $servername = "localhost";
 $username = "sportnews";
-$password = "";
+$password = "sportnews";
 $database = "sportnews";
 
 $connect = mysqli_connect($servername, $username, $password, $database);

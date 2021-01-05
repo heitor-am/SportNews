@@ -1,4 +1,4 @@
-<h1 align="center">Documentação</h1>
+<h1 align="center">Documentação 📄</h1>
 
 <p align="center">
   <img
@@ -11,12 +11,12 @@
 
 <hr>
 
-🏁 Tópicos
-=================
+<h2>🏁 Tópicos</h2>
+
 <!--ts-->
    * [Tecnologias](#tecnologias)
    * [Homepage](#homepage)
-   * [Artigos](#artigos)
+   * [Login e Artigos](#artigos)
    * [Página de artigo](#artigo)
    * [Sistema de pesquisa](#pesquisa)
    * [Filtragem por categoria](#categoria)
@@ -40,9 +40,9 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [Git](https://git-scm.com/)
 
 <hr>
-<h2 id="homepage">✅ Homepage</h2>
+<h2 id="homepage">🏠 Homepage</h2>
 
-<p>No arquivo index.php, onde é tratado a homepage do site, logo no início do código, é feita uma requisição ao banco de dados.</p>
+<p>No arquivo <code>index.php</code>, onde é tratado a homepage do site, logo no início do código, é feita uma requisição ao banco de dados.</p>
 
 ~~~php
 <?php
@@ -59,13 +59,13 @@ mysqli_close($connect);
 ?>
 ~~~
 
-<p>Nessa requisição, os sete últimos artigos publicados no banco são associados a um ARRAY, que por sua vez, é usado para manipular o ordenamento das notícias ao longo da página.</p>
+<p>Nessa requisição, os sete últimos artigos publicados no Banco de Dados são colocados em um <strong><em>array associativo</em></strong>, que por sua vez, é usado para manipular a distribuição das notícias ao longo da página.</p>
 
-<p>Como exemplo, tem-se a notícia principal da página:</p>
+<p>Como exemplo, tem-se o artigo principal da página:</p>
 
 <p align="center"><img src="/img/to_github/homepage.png"></p>
 
-<p>O artigo principal sempre é o mais recente, portanto, recebe a chave “0” no ARRAY, e dessa forma é posto em ordem conforme suas “subchaves” (‘title’, ‘time’, ‘subtitle’, …).</p>
+<p>O artigo principal sempre é o mais recente, portanto, está na posição “0” no <strong><em>array</em></strong>, e, dessa forma, é posto na página, distribuindo as informações no <strong><em>HTML</em></strong> conforme as <strong><em>keys</em></strong> do <strong><em>array associativo</em></strong> (‘title’, ‘time’, ‘subtitle’, …).</p>
 
 ~~~php
 <section id="banner">
@@ -85,13 +85,13 @@ mysqli_close($connect);
 <p>E isso acontece com todos os demais artigos que aparecem na homepage.</p>
 
 <hr>
-<h2 id="artigos">✅ Artigos</h2>
+<h2 id="artigos">🔏 Login e Artigos</h2>
 
-<p>Para que o redator possa criar um novo artigo, ele primeiro precisar logar no sistema. A opção para login fica na sidebar.</p>
+<p>Para que o redator possa criar um novo artigo, ele primeiro precisa logar no sistema. A opção para login fica na sidebar.</p>
 
 <p align="center"><img src="/img/to_github/login.png"></p>
 
-<p>Clicando no botão, um pop-up aparece na tela onde são solicitadas as informações de login: Nome do usuário e senha.</p>
+<p>Clicando no botão, um pop-up aparece na tela onde são solicitadas as informações de login: <strong><em>Nome do usuário</em></strong> e <strong><em>Senha</em></strong>.</p>
 
 <p align="center"><img src="/img/to_github/modal.png"></p>
 
@@ -132,7 +132,7 @@ mysqli_close($connect);
 </script>
 ~~~
 
-<p>Ao clicar no botão LOGIN, todas as informações inseridas nos inputs são atribuídas à variável modal, que, por sua vez, através do método POST, é enviada ao arquivo /redator/login.php, onde é verificado se os dados recebidos estão contidos na Base de dados.</p>
+<p>Ao clicar no botão <strong><em>Login</em></strong>, todas as informações inseridas nos inputs são enviadas, através do método <strong><em>POST</em></strong>, ao arquivo <code>/redator/login.php</code>, onde é verificado se os dados recebidos estão contidos no Banco de dados.</p>
 
 ~~~php
 if (isset($_POST['btn-login'])) {
@@ -172,11 +172,11 @@ if (!empty($errors)) {
 }
 ~~~
 
-<p>Se as informações forem autenticadas, o usuário será direcionado à página de edição de artigos.</p>
+<p>Se as informações forem autenticadas, o redator será direcionado à página de edição de artigos.</p>
 
 <p align="center"><img src="/img/to_github/redator.png"></p>
 
-<p>Após preencher os campos de texto, o redator clica em PREVIEW,onde os inputs são inseridos dentro de um ARRAY, e acaba sendo direcionado a uma página que mostra uma pré-visualização do seu artigo, dessa forma, ele poder verificar o resultado final sem haja a necessidade de enviar ao banco.</p>
+<p>Após preencher os campos de texto, o redator clica em <strong><em>Preview</em></strong>, onde os inputs são inseridos dentro de um <strong><em>array</em></strong>, e acaba sendo direcionado a uma página que mostra uma pré-visualização do seu artigo, dessa forma, ele poder verificar o resultado final sem que haja a necessidade de enviar ao Banco de Dados.</p>
 
 ~~~php
 $content = array(
@@ -189,13 +189,13 @@ $content = array(
 );
 ~~~
 
-<p>Trecho do código preview.php, onde os conteúdos dos inputs são inseridos em um ARRAY.</p>
+<p>Trecho do código <code>preview.php</code>, onde os conteúdos dos inputs são inseridos em um <strong><em>array</em></strong>.</p>
 
 <p align="center"><img width="700px" src="/img/to_github/preview.png"></p>
 
-<p>Observe que há duas opções: VOLTAR, caso o redator não tenha gostado do resultado do artigo, e ENVIAR, caso a demonstração tenha sido aprovada.</p>
+<p>Observe que há duas opções: </em></strong>Voltar</em></strong>, caso o redator não tenha gostado do resultado do artigo, e <strong><em>Enviar</em></strong>, caso a demonstração tenha sido aprovada.</p>
 
-<p>Ao clicar em enviar, o ARRAY com o conteúdo do artigo é enviado ao arquivo /redator/commit_data.php, através do método POST.</p>
+<p>Ao clicar em <strong><em>Enviar</em></strong>, o <strong><em>array</em></strong> com o conteúdo do artigo é enviado ao arquivo <code>/redator/commit_data.php</code>, através do método <strong><em>POST</em></strong>.</p>
 
 ~~~php
 <body>
@@ -221,9 +221,9 @@ $content = array(
 </body>
 ~~~
 
-<p>Trecho do código preview.php, onde o conteúdo do artigo é preparado para ser enviado ao arquivo commit_data.php</p>
+<p>Trecho do código <code>preview.php</code>, onde o conteúdo do artigo é preparado para ser enviado ao arquivo <code>commit_data.php</code></p>
 
-<p><b>Obs:</b> O arquivo commit_data.php depende do arquivo /db/db_connect.php, onde é estabelecida a conexão com o banco.</p>
+<p><b>Obs:</b> O arquivo <code>commit_data.php</code> depende do arquivo <code>/db/db_connect.php</code>, onde é estabelecida a conexão com o Banco de Dados.</p>
 
 ~~~php
 <?php
@@ -240,7 +240,7 @@ if (mysqli_connect_error()) {
 }
 ~~~
 
-<p>No arquivo commit_data.php, onde os dados foram recebidos, é feito um INSERT na base de dados com todo o conteúdo do artigo.</p>
+<p>No arquivo <code>commit_data.php</code>, onde os dados foram recebidos, é feito um <strong><em>INSERT</em></strong> na base de dados com todo o conteúdo do artigo.</p>
 
 ~~~php
 $now = date("d/m/Y H:i");
@@ -267,18 +267,18 @@ if (mysqli_query($connect, $query)) {
 }
 ~~~
 
-<p>A Base de dados possui a seguinte estrutura:</p>
+<p>A tabela <strong><em>articles</em></strong> possui a seguinte estrutura:</p>
 
 <p align="center"><img src="/img/to_github/tabela.png"></p>
 
 <hr>
-<h2 id="artigo">✅ Página do artigo</h2>
+<h2 id="artigo">🎯 Página do artigo</h2>
 
-<p>Cada <strong><em>link</em></strong> de artigo localizado na homepage tem seu botão de redirecionamento para a apresentação completa, o botão <em>sobre</em>.</p>
+<p>Cada <strong><em>link</em></strong> de artigo localizado na homepage tem seu botão de redirecionamento para a apresentação completa, o botão <strong><em>sobre</em></strong>.</p>
 
 <p align="center"><img src="/img/to_github/sobre.png"></p>
 
-<p>Ao clicar no botão,  o usuário é direcionado ao arquivo <code>/articles/article.php</code>, tendo como parâmetro o ID do artigo.</p>
+<p>Ao clicar no botão,  o usuário é direcionado ao arquivo <code>/articles/article.php</code>, tendo como parâmetro o <strong><em>id</em></strong> do artigo.</p>
 
 ~~~php
 <ul class="actions">
@@ -286,7 +286,7 @@ if (mysqli_query($connect, $query)) {
 </ul>
 ~~~
 
-<p>Recebendo o ID do artigo, o arquivo <code>article.php</code> faz uma REQUEST no Banco de Dados para que as informações daquele artigo em específico sejam extraídas.</p>
+<p>Recebendo o <strong><em>id</em></strong> do artigo, o arquivo <code>article.php</code> faz uma REQUEST no Banco de Dados para que as informações daquele artigo em específico sejam extraídas.</p>
 
 ~~~php
 if (isset($_GET['id'])) {
@@ -309,13 +309,13 @@ if (isset($_GET['id'])) {
 ~~~
 
 <hr>
-<h2 id="pesquisa">✅ Sistema de pesquisa</h2>
+<h2 id="pesquisa">🔎 Sistema de pesquisa</h2>
 
 <p>Caso o usuário procure por um artigo específico, ele pode optar por digitar uma palavra de seu interesse na barra de pesquisa localizada na sidebar.</p>
 
 <p align="center"><img src="/img/to_github/search.png"></p>
 
-<p>Ao digitar uma palavra e pressionar a tecla <strong><em>Enter</em></strong>, o formulário, onde está localizado a barra de pequisa, aciona o arquivo <code>/articles/search.php</code>, que, por sua vez, através do método GET, recebe o conteúdo do input e, logo após, faz uma requisição à Base de Dados para receber todos os artigos que possuam o título relacionado ao que foi digitado na barra de pesquisa.</p>
+<p>Ao digitar uma palavra e pressionar a tecla <strong><em>Enter</em></strong>, o formulário, onde está localizado a barra de pequisa, aciona o arquivo <code>/articles/search.php</code>, que, por sua vez, através do método <strong><em>GET</em></strong>, recebe o conteúdo do input e, logo após, faz uma requisição à Base de Dados para receber todos os artigos que possuam o título relacionado ao que foi digitado na barra de pesquisa.</p>
 
 ~~~php
 if (isset($_GET['query'])) {
@@ -357,14 +357,13 @@ if (!empty($array)) {
 ~~~
 
 <hr>
-<h2 id="categoria">✅ Filtragem por categoria</h2>
+<h2 id="categoria">🏀 Filtragem por categoria</h2>
 
 <p>Na sidebar, o usuário pode filtrar os artigos existentes com base em sua categoria.</p>
 
 <p align="center"><img src="/img/to_github/categoria.png"></p>
 
-<p>Ao clicar em uma das categorias listadas, o usuário é redirecionado a
-	<code>https://localhost/SportNews/articles/?cat={categoria}</code>, onde a categoria escolhida é passada como parâmetro em cat, e, dessa forma, o usuário verá apenas os artigos da categoria escolhida.</p>
+<p>Ao clicar em uma das categorias listadas, o usuário é redirecionado a <code>https://localhost/SportNews/articles/?cat={categoria}</code>, onde a categoria escolhida é passada como parâmetro em cat, e, dessa forma, o usuário verá apenas os artigos da categoria escolhida.</p>
 
 ~~~php
 <li><a href="http://localhost/SportNews/articles/?cat=Futebol">Futebol</a></li>
@@ -374,11 +373,11 @@ if (!empty($array)) {
 ~~~
 
 <hr>
-<h2 id="api">✅ API</h2>
+<h2 id="api">📊 API</h2>
 
-<p>A API – Interface de Programação de Aplicações – escolhida para o projeto foi a https://v2.api-football.com, exclusivamente utilizada para a coleta de dados atualizados do campeonato brasileiro de futebol.</p>
+<p>A <strong><em>API</em></strong> – Interface de Programação de Aplicações – escolhida para o projeto foi a https://v2.api-football.com, exclusivamente utilizada para a coleta de dados atualizados do campeonato brasileiro de futebol.</p>
 
-<p>O arquivo de conexão à API está em <code>/tables/api.php</code></p>
+<p>O arquivo de conexão à <strong><em>API</em></strong> está em <code>/tables/api.php</code></p>
 
 ~~~php
 <?php
@@ -422,7 +421,7 @@ if ($err) {
 }
 ~~~
 
-<p>Os dados retirados da API são inseridos em um <strong><em>array</em></strong>, para que o tratamento das informações possa ser feito de maneira mais eficiente, e depois são jogados em uma tabela gerada por tags HTML, que pode ser vista em <code>http://localhost/SportNews/tables/?serie=a</code> ou <code>http://localhost/SportNews/tables/?serie=b</code>, isso ocorre no arquivo <code>/tables/index.php</code>.</p>
+<p>Os dados retirados da <strong><em>API</em></strong> são inseridos em um <strong><em>array</em></strong>, para que o tratamento das informações possa ser feito de maneira mais eficiente, e depois são jogados em uma tabela gerada por tags <strong><em>HTML</em></strong>, que pode ser vista em <code>http://localhost/SportNews/tables/?serie=a</code> ou <code>http://localhost/SportNews/tables/?serie=b</code>, isso ocorre no arquivo <code>/tables/index.php</code>.</p>
 
 ~~~php
 <section id="banner">
@@ -468,9 +467,9 @@ if ($err) {
 ~~~
 
 <hr>
-<h2 id="economia">✅ Economia de código</h2>
+<h2 id="economia">👨🏻‍💻 Economia de código</h2>
 
-<p>Como uma boa prática de código limpo, todas as páginas do site foram feitas usando-se o Header e o Footer localizados em <code>/config/header.php</code> e <code>/config/footer.php</code>, respectivamente.</p>
+<p>Como uma boa prática de código limpo, todas as páginas do site foram feitas usando-se o <strong><em>header</em></strong> e o <strong><em>footer</em></strong> localizados em <code>/config/header.php</code> e <code>/config/footer.php</code>, respectivamente.</p>
 
 ~~~php
 include 'config/header.php';
@@ -482,4 +481,4 @@ include 'config/footer.php';
 <hr>
 <h2 id="licenca">📝 Licença</h2>
 
-[MIT](LICENSE)
+Este projeto está sob a licença [MIT](LICENSE).

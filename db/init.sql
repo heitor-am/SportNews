@@ -26,7 +26,7 @@ INSERT INTO `redator` (`id`, `username`, `password`) VALUES
 (1, 'Swan', 'e8d95a51f3af4a3b134bf6bb680a213a'),
 (2, 'Douglas', 'e8d95a51f3af4a3b134bf6bb680a213a'),
 (3, 'Heitor', 'e8d95a51f3af4a3b134bf6bb680a213a'),
-(4, 'Manoel', 'e8d95a51f3af4a3b134bf6bb680a213a'),
+(4, 'Pedro', 'e8d95a51f3af4a3b134bf6bb680a213a'),
 (5, 'Yan', 'e8d95a51f3af4a3b134bf6bb680a213a'),
 (6, 'Francieric', 'e8d95a51f3af4a3b134bf6bb680a213a');
 

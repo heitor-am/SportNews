@@ -31,13 +31,13 @@
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-- [HTML](https://www.w3.org/)
-- [CSS](https://www.w3.org/)
-- [JavaScript](https://www.w3.org/)
-- [PHP](https://www.php.net/)
-- [Sass](https://sass-lang.com/)
-- [JQuery](https://jquery.com/)
-- [Git](https://git-scm.com/)
+- <a href="https://www.w3.org/"><img src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white"/></a>
+- <a href="https://www.w3.org/"><img src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/></a>
+- <a href="https://www.w3.org/"><img src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/></a>
+- <a href="https://www.php.net/"><img src="https://img.shields.io/badge/php%20-%23777bb3.svg?&style=for-the-badge&logo=php&logoColor=white"/></a>
+- <a href="https://sass-lang.com/"><img src ="https://img.shields.io/badge/sass%20-%23cf649a.svg?&style=for-the-badge&logo=sass&logoColor=white"/></a>
+- <a href="https://jquery.com/"><img src="https://img.shields.io/badge/jquery%20-%230769AD.svg?&style=for-the-badge&logo=jquery&logoColor=white"/></a>
+- <a href="https://git-scm.com/"><img src="https://img.shields.io/badge/git%20-%23F05033.svg?&style=for-the-badge&logo=git&logoColor=white"/></a>
 
 <hr>
 <h2 id="homepage">🏠 Homepage</h2>

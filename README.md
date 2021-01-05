@@ -37,7 +37,7 @@
 - [x] MySQL
 - [x] PHP
 
-<p>Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)</p>
+<p>Além disto é bom ter um editor para trabalhar com o código como <a href="https://code.visualstudio.com/">VSCode</a></p>
 
 <hr>
 

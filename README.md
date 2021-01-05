@@ -11,7 +11,6 @@
 
 <hr>
 
-
 🏁 Tópicos
 =================
 <!--ts-->
@@ -40,7 +39,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [JQuery](https://jquery.com/)
 - [Git](https://git-scm.com/)
 
-<br>
+<hr>
 <h2 id="homepage">✅ Homepage</h2>
 
 <p>No arquivo index.php, onde é tratado a homepage do site, logo no início do código, é feita uma requisição ao banco de dados.</p>
@@ -85,7 +84,7 @@ mysqli_close($connect);
 
 <p>E isso acontece com todos os demais artigos que aparecem na homepage.</p>
 
-<br>
+<hr>
 <h2 id="artigos">✅ Artigos</h2>
 
 <p>Para que o redator possa criar um novo artigo, ele primeiro precisar logar no sistema. A opção para login fica na sidebar.</p>
@@ -192,7 +191,7 @@ $content = array(
 
 <p>Trecho do código preview.php, onde os conteúdos dos inputs são inseridos em um ARRAY.</p>
 
-<p align="center"><img src="/img/to_github/preview.png"></p>
+<p align="center"><img width="700px" src="/img/to_github/preview.png"></p>
 
 <p>Observe que há duas opções: VOLTAR, caso o redator não tenha gostado do resultado do artigo, e ENVIAR, caso a demonstração tenha sido aprovada.</p>
 
@@ -272,14 +271,14 @@ if (mysqli_query($connect, $query)) {
 
 <p align="center"><img src="/img/to_github/tabela.png"></p>
 
-<br>
+<hr>
 <h2 id="artigo">✅ Página do artigo</h2>
 
-<p>Cada “Spoiler” de artigo localizado na homepage tem seu botão de redirecionamento para a apresentação completa, o botão SOBRE.</p>
+<p>Cada <strong><em>link</em></strong> de artigo localizado na homepage tem seu botão de redirecionamento para a apresentação completa, o botão <em>sobre</em>.</p>
 
 <p align="center"><img src="/img/to_github/sobre.png"></p>
 
-<p>Ao clicar no botão,  o usuário é direcionado ao arquivo /articles/article.php, tendo como parâmetro o ID do artigo.</p>
+<p>Ao clicar no botão,  o usuário é direcionado ao arquivo <code>/articles/article.php</code>, tendo como parâmetro o ID do artigo.</p>
 
 ~~~php
 <ul class="actions">
@@ -287,7 +286,7 @@ if (mysqli_query($connect, $query)) {
 </ul>
 ~~~
 
-<p>Recebendo o ID do artigo, o arquivo article.php faz uma REQUEST no Banco Dados para que as informações daquele artigo em específico sejam extraídas.</p>
+<p>Recebendo o ID do artigo, o arquivo <code>article.php</code> faz uma REQUEST no Banco de Dados para que as informações daquele artigo em específico sejam extraídas.</p>
 
 ~~~php
 if (isset($_GET['id'])) {
@@ -309,14 +308,14 @@ if (isset($_GET['id'])) {
 }
 ~~~
 
-<br>
+<hr>
 <h2 id="pesquisa">✅ Sistema de pesquisa</h2>
 
 <p>Caso o usuário procure por um artigo específico, ele pode optar por digitar uma palavra de seu interesse na barra de pesquisa localizada na sidebar.</p>
 
 <p align="center"><img src="/img/to_github/search.png"></p>
 
-<p>Ao digitar uma palavra e pressionar a tecla Enter, o formulário, onde está localizado a barra de pequisa, aciona o arquivo /articles/search.php, que, por sua vez, através do método GET, recebe o conteúdo do input e, logo após, faz uma requisição à Base de dados para receber todos os artigos que possuam o título relacionado ao que foi digitado na barra de pesquisa.</p>
+<p>Ao digitar uma palavra e pressionar a tecla <strong><em>Enter</em></strong>, o formulário, onde está localizado a barra de pequisa, aciona o arquivo <code>/articles/search.php</code>, que, por sua vez, através do método GET, recebe o conteúdo do input e, logo após, faz uma requisição à Base de Dados para receber todos os artigos que possuam o título relacionado ao que foi digitado na barra de pesquisa.</p>
 
 ~~~php
 if (isset($_GET['query'])) {
@@ -357,7 +356,7 @@ if (!empty($array)) {
 ?>
 ~~~
 
-<br>
+<hr>
 <h2 id="categoria">✅ Filtragem por categoria</h2>
 
 <p>Na sidebar, o usuário pode filtrar os artigos existentes com base em sua categoria.</p>
@@ -365,7 +364,7 @@ if (!empty($array)) {
 <p align="center"><img src="/img/to_github/categoria.png"></p>
 
 <p>Ao clicar em uma das categorias listadas, o usuário é redirecionado a
-https://localhost/SportNews/articles/?cat=, onde a categoria escolhida é passada como parâmetro em cat, e, dessa forma, verá apenas os artigos da categoria escolhida.</p>
+	<code>https://localhost/SportNews/articles/?cat={categoria}</code>, onde a categoria escolhida é passada como parâmetro em cat, e, dessa forma, o usuário verá apenas os artigos da categoria escolhida.</p>
 
 ~~~php
 <li><a href="http://localhost/SportNews/articles/?cat=Futebol">Futebol</a></li>
@@ -374,12 +373,12 @@ https://localhost/SportNews/articles/?cat=, onde a categoria escolhida é passad
 <li><a href="http://localhost/SportNews/articles/?cat=Vôlei">Vôlei</a></li>
 ~~~
 
-<br>
+<hr>
 <h2 id="api">✅ API</h2>
 
-<p>A API – Interface de Programação de Aplicações – escolhida para o projeto foi a https://v2.api-football.com, exclusivamente usada para a criação do dinamismo das tabelas do campeonato brasileiro de futebol.</p>
+<p>A API – Interface de Programação de Aplicações – escolhida para o projeto foi a https://v2.api-football.com, exclusivamente utilizada para a coleta de dados atualizados do campeonato brasileiro de futebol.</p>
 
-<p>O arquivo de conexão à API está em /tables/api.php</p>
+<p>O arquivo de conexão à API está em <code>/tables/api.php</code></p>
 
 ~~~php
 <?php
@@ -423,7 +422,7 @@ if ($err) {
 }
 ~~~
 
-<p>Os dados retirados da API são inseridos em um ARRAY, para que o tratamento das informações possa ser feito de maneira mais eficiente, e depois são jogados em uma tabela gerada por tags HTML, que pode ser vista em http://localhost/SportNews/tables/?serie=a ou http://localhost/SportNews/tables/?serie=b, isso ocorre no arquivo /tables/index.php.</p>
+<p>Os dados retirados da API são inseridos em um <strong><em>array</em></strong>, para que o tratamento das informações possa ser feito de maneira mais eficiente, e depois são jogados em uma tabela gerada por tags HTML, que pode ser vista em <code>http://localhost/SportNews/tables/?serie=a</code> ou <code>http://localhost/SportNews/tables/?serie=b</code>, isso ocorre no arquivo <code>/tables/index.php</code>.</p>
 
 ~~~php
 <section id="banner">
@@ -468,10 +467,10 @@ if ($err) {
 </section>
 ~~~
 
-<br>
+<hr>
 <h2 id="economia">✅ Economia de código</h2>
 
-<p>Como uma boa prática de código limpo, todas as páginas do site foram feitas usando-se o Header e o Footer localizados em /config/header.php e /config/footer.php, respectivamente.</p>
+<p>Como uma boa prática de código limpo, todas as páginas do site foram feitas usando-se o Header e o Footer localizados em <code>/config/header.php</code> e <code>/config/footer.php</code>, respectivamente.</p>
 
 ~~~php
 include 'config/header.php';
@@ -480,6 +479,7 @@ include 'config/header.php';
 include 'config/footer.php';
 ~~~
 
-<h2 id="licenca">LICENSE</h2>
+<hr>
+<h2 id="licenca">📝 Licença</h2>
 
 [MIT](LICENSE)

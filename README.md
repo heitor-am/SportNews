@@ -7,22 +7,22 @@
     src="/img/logo/logo.png"
   />
 </p>
-<p align="center">Projeto simples de um Portal de Notícias.</p>
+<p align="center">Projeto simples de um Portal de Notícias sobre Esporte ⚽️.</p>
 
 <hr>
 
 <h2>🏁 Tópicos</h2>
 
 <!--ts-->
-   * [Tecnologias](#tecnologias)
-   * [Homepage](#homepage)
-   * [Login e Artigos](#artigos)
-   * [Página de artigo](#artigo)
-   * [Sistema de pesquisa](#pesquisa)
-   * [Filtragem por categoria](#categoria)
-   * [API](#api)
-   * [Economia de código](#economia)
-   * [LICENSE](#licenca)
+   * [Tecnologias](#tecnologias) 🛠
+   * [Homepage](#homepage) 🏠
+   * [Login e Artigos](#artigos) 🔏
+   * [Página de artigo](#artigo) 🎯
+   * [Sistema de pesquisa](#pesquisa) 🔎
+   * [Filtragem por categoria](#categoria) 🏀
+   * [API](#api) 📊
+   * [Economia de código](#economia) 👨🏻‍💻
+   * [LICENSE](#licenca) 📝
 <!--te-->
 
 <hr>

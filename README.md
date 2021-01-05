@@ -14,8 +14,8 @@
 <h2>🏁 Tópicos</h2>
 
 <!--ts-->
-   * [Pré-requisitos](#tecnologias) ✅
-   * [Preparando o Banco de Dados](#homepage) 🎲
+   * [Pré-requisitos](#requisitos) ✅
+   * [Preparando o Banco de Dados](#bd) 🎲
    * [Tecnologias](#tecnologias) 🛠
    * [Homepage](#homepage) 🏠
    * [Login e Artigos](#artigos) 🔏
